@@ -23,8 +23,6 @@ window.title("Word To Excel")
 organize_button = tk.Button(window, text="WordToExcel", command=Run)
 organize_button.pack()
 
-
-
 status_label = tk.Label(window, text="")
 status_label.pack()
 
