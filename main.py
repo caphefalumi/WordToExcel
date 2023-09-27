@@ -50,7 +50,7 @@ def questionCreate(doc,current_question, options, highlights, data):
             # Append options to the list
             options.append(text)
     lastQuestion(current_question, options, highlights, data)
-    os.system('cls')
+    cls()
 # Add the last question
 def lastQuestion(current_question, options, highlights, data):
     if current_question and options:

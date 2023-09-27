@@ -1,29 +1,46 @@
 import tkinter as tk
-import docx
 from tkinter import filedialog
+import docx
 from main import *
 from init import *
 
+def run_conversion():
+    file_path = open_folder()
+    if file_path:
+        doc = docx.Document(file_path)
+        format_paragraph(doc)
+        temp_doc = docx.Document('temp.docx')
+        questionCreate(temp_doc, current_question, options, highlights, data)
+        dataFrame(data)
+        #os.remove('temp.docx')
+        status_label.config(text="Conversion completed successfully!")
 
+def open_folder():
+    file_path = filedialog.askopenfilename(filetypes=[("Word files", "*.docx")])
+    return file_path
 
-os.system('cls')
-print("Launching...")
-def Run():
-    doc = docx.Document(rf"{open_folder()}")
-    format_paragraph(doc)
-    temp_doc = docx.Document(r'temp.docx')
-    questionCreate(temp_doc,current_question,options,highlights,data)
-    dataFrame(data)
-    os.remove(r'temp.docx')
-
-
+# Create the main window
 window = tk.Tk()
-window.title("Word To Excel")
+window.title("Word To Excel Converter")
+window.geometry("400x200")
 
-organize_button = tk.Button(window, text="WordToExcel", command=Run)
-organize_button.pack()
+# Main frame for organizing widgets
+main_frame = tk.Frame(window)
+main_frame.pack(pady=20)
 
-status_label = tk.Label(window, text="")
-status_label.pack()
+# Header label
+header_label = tk.Label(main_frame, text="Convert Word to Excel", font=("Helvetica", 16))
+header_label.grid(row=0, column=0, columnspan=2, pady=10)
 
+# File selection button
+file_button = tk.Button(main_frame, text="Select Word Document", command=run_conversion)
+file_button.grid(row=1, column=0, columnspan=2, pady=10)
+
+# Status label
+status_label = tk.Label(main_frame, text="", fg="green")
+status_label.grid(row=2, column=0, columnspan=2, pady=10)
+
+# Additional features and widgets can be added here
+
+# Start the GUI application
 window.mainloop()
