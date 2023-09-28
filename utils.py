@@ -21,7 +21,7 @@ def split_options(text):
 def extract_format_text(paragraph):
     format_text = ""
     for run in paragraph.runs:
-        if run.font.highlight_color:  # Check if the text is highlighted or bold
+        if run.font.highlight_color or run.bold:  # Check if the text is highlighted or bold
             format_text += run.text
     return format_text
 
