@@ -1,7 +1,5 @@
 import win32com.client
-import tkinter as tk
 from tkinter.filedialog import askopenfilename
-import docx
 import re
 import os
 
