@@ -75,8 +75,6 @@ def dataFrame(data):
     # Save the DataFrame to an Excel file
     try:
         close_excel()
-        last_row = len(df)
-        df.drop(df.index[last_row-1])
         df.to_excel('questions.xlsx', index=False)
         os.startfile("questions.xlsx")
     except Exception as exception:
