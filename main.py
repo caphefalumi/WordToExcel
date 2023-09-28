@@ -13,7 +13,7 @@ highlights = []
 
 # Iterate through the document to extract highlighted text
 def questionCreate(doc, current_question, current_options, highlights, data):
-    
+
     print('Creating...')
     for paragraph in doc.paragraphs:
         highlighted_text = extract_format_text(paragraph)
@@ -39,13 +39,13 @@ def questionCreate(doc, current_question, current_options, highlights, data):
                     'Correct Answer': get_correct_answer_index(current_options, highlights),
                     'Time in seconds': 30,
                 })
-
             current_question = text
             current_options = []  # Clear the options list for the new question
         elif is_option(text):
             # Split the options if multiple are on the same line
             for option in split_options(text):
                 current_options.append(option)
+
     # Add the last question if it exists
     lastQuestion(current_question,current_options,highlights,data)
 
@@ -67,6 +67,7 @@ def lastQuestion(current_question, current_options, highlights, data):
             'Correct Answer': get_correct_answer_index(current_options, highlights),  # No correct answer specified in the provided format
             'Time in seconds': 30,  # You can set the time as needed
         })
+
 #dùng def bằng cách split
 # Create a DataFrame from the extracted data
 def dataFrame(data):
@@ -74,6 +75,8 @@ def dataFrame(data):
     # Save the DataFrame to an Excel file
     try:
         close_excel()
+        last_row = len(df)
+        df.drop(df.index[last_row-1])
         df.to_excel('questions.xlsx', index=False)
         os.startfile("questions.xlsx")
     except Exception as exception:
