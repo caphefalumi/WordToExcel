@@ -65,7 +65,6 @@ def lastQuestion(current_question, current_options, highlights, data):
             'Time in seconds': 30,  # You can set the time as needed
         })
 
-#dùng def bằng cách split
 # Create a DataFrame from the extracted data
 def dataFrame(data,file_path):
     df = pd.DataFrame(data)
