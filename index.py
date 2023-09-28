@@ -10,7 +10,7 @@ def run_conversion():
         doc = docx.Document(file_path)
         format_paragraph(doc)
         temp_doc = docx.Document('temp.docx')
-        questionCreate(temp_doc, current_question, options, highlights, data)
+        questionCreate(temp_doc, current_question, current_options, highlights, data)
         dataFrame(data)
         #os.remove('temp.docx')
         status_label.config(text="Conversion completed successfully!")
