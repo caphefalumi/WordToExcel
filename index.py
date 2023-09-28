@@ -4,7 +4,7 @@ import docx
 from main import *
 from init import *
 
-def run_conversion():
+def run():
     file_path = open_folder()
     if file_path:
         doc = docx.Document(file_path)
@@ -16,9 +16,6 @@ def run_conversion():
         status_label.config(text="Conversion completed successfully!")
         os.remove(r'temp.docx')
 
-def open_folder():
-    file_path = filedialog.askopenfilename(filetypes=[("Word files", "*.docx")])
-    return file_path
 
 # Create the main window
 window = tk.Tk()
@@ -34,7 +31,7 @@ header_label = tk.Label(main_frame, text="Convert Word to Excel", font=("Helveti
 header_label.grid(row=0, column=0, columnspan=2, pady=10)
 
 # File selection button
-file_button = tk.Button(main_frame, text="Select Word Document", command=run_conversion)
+file_button = tk.Button(main_frame, text="Select Word Document", command=run)
 file_button.grid(row=1, column=0, columnspan=2, pady=10)
 
 # Status label

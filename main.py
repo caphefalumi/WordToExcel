@@ -13,8 +13,8 @@ highlights = []
 
 # Iterate through the document to extract highlighted text
 def questionCreate(doc, current_question, current_options, highlights, data):
+    
     print('Creating...')
-
     for paragraph in doc.paragraphs:
         highlighted_text = extract_format_text(paragraph)
         highlights.append(highlighted_text)
