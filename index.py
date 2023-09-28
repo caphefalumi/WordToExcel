@@ -8,12 +8,11 @@ def run():
     file_path = open_folder()
     if file_path:
         doc = docx.Document(file_path)
-        #format_paragraph(doc)
-        temp_doc = docx.Document('temp.docx')
         questionCreate(doc, current_question, current_options, highlights, data)
         dataFrame(data)
-        #os.remove('temp.docx')
         status_label.config(text="Conversion completed successfully!")
+        window.after(2000, window.quit)
+        cls()
 
 
 # Create the main window
