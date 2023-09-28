@@ -31,7 +31,7 @@ Before you get started with WordToExcel, ensure that you have the following prer
   pip install tk
   pip install pywin32
   ``` 
-- **Clone Repository**: Clone this repository to your local machine using the Git version control system.
+- **Clone Repository**: Clone this repository to your local machine using the Git version control system or simply download the zip.
 
 ## Installation
 
