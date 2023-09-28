@@ -7,7 +7,7 @@ import os
 
 # Helper function to open a window that specifies a file's path
 def cls():
-    return 
+    return os.system('cls')
 def open_folder():
     folderpath = askopenfilename()
     return folderpath
@@ -55,7 +55,6 @@ def format_paragraph(doc):
                 # Split the options if multiple are on the same line
                 for option in split_options(text):
                     current_options.append(option)
-                    print(option)
 
     # Append the last question and its options if they exist
     if current_question:

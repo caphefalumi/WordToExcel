@@ -14,6 +14,7 @@ def run_conversion():
         dataFrame(data)
         #os.remove('temp.docx')
         status_label.config(text="Conversion completed successfully!")
+        os.remove(r'temp.docx')
 
 def open_folder():
     file_path = filedialog.askopenfilename(filetypes=[("Word files", "*.docx")])
