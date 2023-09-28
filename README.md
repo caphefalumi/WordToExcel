@@ -21,7 +21,8 @@ Before you begin, ensure you have met the following requirements:
 To use WordToExcel, follow these steps:
 
 * **Prerequisites**: Ensure you meet all the prerequisites mentioned above.
-Run the Python script by executing the following code <python gui.py>.
+
+Run the Python script by executing the following code [//]: # (<python gui.py>).
 Follow the on-screen instructions to provide the input Word document.
 WordToExcel will generate an Excel file with the converted questions and options.
 # Contributing
