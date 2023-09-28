@@ -1,9 +1,6 @@
 import pandas as pd
-import os
-from init import *
-import docx
-from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
-
+from os import path
+from utils import *
 
 
 data = []
@@ -70,12 +67,14 @@ def lastQuestion(current_question, current_options, highlights, data):
 
 #dùng def bằng cách split
 # Create a DataFrame from the extracted data
-def dataFrame(data):
+def dataFrame(data,file_path):
     df = pd.DataFrame(data)
+    # file name without extension
+    file_name = path.splitext(path.basename(rf'{file_path}'))[0]    
     # Save the DataFrame to an Excel file
     try:
         close_excel()
-        df.to_excel('questions.xlsx', index=False)
-        os.startfile("questions.xlsx")
+        df.to_excel(f'{file_name}.xlsx', index=False)
+        os.startfile(f'{file_name}.xlsx')
     except Exception as exception:
         print(exception)

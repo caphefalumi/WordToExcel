@@ -2,14 +2,14 @@ import tkinter as tk
 from tkinter import filedialog
 import docx
 from main import *
-from init import *
+from utils import *
 
 def run():
     file_path = open_folder()
     if file_path:
         doc = docx.Document(file_path)
         questionCreate(doc, current_question, current_options, highlights, data)
-        dataFrame(data)
+        dataFrame(data,file_path)
         status_label.config(text="Conversion completed successfully!")
         window.after(2000, window.quit)
         cls()
