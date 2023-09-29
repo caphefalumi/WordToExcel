@@ -47,8 +47,8 @@ To make use of WordToExcel, follow these simple steps:
 ```bash
 python gui.py
 ```
-3. **Follow** the on-screen instructions to provide the input Word document.
-4. **WordToExcel** will generate an Excel file with the converted questions and options.
+3. **Run the App**: Double click on app.exe for usage:
+4. **WordToExcel** will generate an Excel file with the converted questions and options in the current path.
 # Contributing
 Contributions are welcome! If you want to contribute to this project, please fork the repository, create a new branch, and submit a pull request.
 
