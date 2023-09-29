@@ -7,8 +7,8 @@ import os
 def cls():
     return os.system('cls')
 def open_folder():
-    folderpath = askopenfilename()
-    return folderpath
+    filepath = askopenfilename()
+    return filepath
 
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
 def is_option(paragraph):
