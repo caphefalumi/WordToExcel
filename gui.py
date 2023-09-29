@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import filedialog
 import docx
 from main import *
 from utils import *
@@ -35,8 +34,6 @@ file_button.grid(row=1, column=0, columnspan=2, pady=10)
 # Status label
 status_label = tk.Label(main_frame, text="", fg="green")
 status_label.grid(row=2, column=0, columnspan=2, pady=10)
-
-# Additional features and widgets can be added here
 
 # Start the GUI application
 window.mainloop()
