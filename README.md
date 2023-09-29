@@ -43,7 +43,7 @@ To make use of WordToExcel, follow these simple steps:
 
 1. **Prerequisites**: Ensure that you have met all the requirements mentioned above.
 
-2. **Run the Script**: Execute the Python script by running the following code in your terminal or command prompt:
+2. **Run the Script**: Execute the Python script by navigate to your file path and then run the following code in your terminal or command prompt:
 ```bash
 python gui.py
 ```
