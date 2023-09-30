@@ -5,7 +5,7 @@ import os
 
 # Helper function to open a window that specifies a file's path
 def cls():
-    return os.system('cls')
+    return 
 def open_folder():
     filepath = askopenfilename()
     return filepath
@@ -60,12 +60,11 @@ def kahoot(data, current_question, current_options, highlights):
 def close_excel():
     file_path = os.path.abspath(r"questions.xlsx")
     try:
-        print("Closing")
         excel = win32com.client.Dispatch("Excel.Application")
         excel.Visible = False  # Optional: Hide Excel window
         workbook = excel.Workbooks.Open(file_path)
         workbook.Close(True)  # True to save changes, False to discard changes
         excel.Quit()
         cls()
-    except Exception as e:
-        print(f'Error: {str(e)}')
+    except Exception:
+        pass
