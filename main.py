@@ -25,17 +25,7 @@ def questionCreate(doc, current_question, current_options, highlights, data):
             if current_question and current_options:
                 while len(current_options) < 4:
                     current_options.append("")  # Fill in empty options if there are less than 4
-
-                data.append({
-                    'Question Text': current_question,
-                    'Question Type': "Multiple Choice",
-                    'Option 1': current_options[0],
-                    'Option 2': current_options[1],
-                    'Option 3': current_options[2],
-                    'Option 4': current_options[3],
-                    'Correct Answer': get_correct_answer_index(current_options, highlights),
-                    'Time in seconds': 30,
-                })
+                quizizz(data,current_question,current_options,highlights)
             current_question = text
             current_options = []  # Clear the options list for the new question
         elif is_option(text):

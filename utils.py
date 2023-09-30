@@ -32,6 +32,31 @@ def get_correct_answer_index(options, highlights):
                 return i + 1
     return None
 
+def quizizz(data, current_question, current_options, highlights):
+    data.append({
+        'Question Text': current_question,
+        'Question Type': "Multiple Choice",
+        'Option 1': current_options[0],
+        'Option 2': current_options[1],
+        'Option 3': current_options[2],
+        'Option 4': current_options[3],
+        'Correct Answer': get_correct_answer_index(current_options, highlights),
+        'Time in seconds': 30,
+    })
+    return data
+
+def kahoot(data, current_question, current_options, highlights):
+    data.append({
+        'Question': current_question,
+        'Answer 1': current_options[0],
+        'Answer 2': current_options[1],
+        'Answer 3': current_options[2],
+        'Answer 4': current_options[3],
+        'Time limit': 30,
+        'Correct Answer': get_correct_answer_index(current_options, highlights),
+        
+    })
+    return data
 def close_excel():
     file_path = os.path.abspath(r"questions.xlsx")
     try:
