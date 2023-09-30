@@ -3,6 +3,7 @@ from os import path
 from utils import *
 from subprocess import Popen
 
+
 data = []
 current_question = ""
 current_options = []

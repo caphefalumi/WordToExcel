@@ -1,7 +1,7 @@
 import tkinter as tk
 import docx
 from main import *
-from utils import *
+
 
 def run():
     file_path = open_folder()

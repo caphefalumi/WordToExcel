@@ -3,6 +3,7 @@ from tkinter.filedialog import askopenfilename
 import re
 import os
 
+
 # Helper function to open a window that specifies a file's path
 def cls():
     return 
