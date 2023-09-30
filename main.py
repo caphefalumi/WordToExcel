@@ -51,7 +51,7 @@ def dataFrame(data, file_path):
     try:
         close_excel()
         df.to_excel(f'{file_name}.xlsx', index=False)
-        os.startfile(f'{file_name}.xlsx')
         Popen(rf'explorer /select,"{file_name}.xlsx"')
+        os.startfile(f'{file_name}.xlsx')
     except Exception:
         pass

@@ -34,9 +34,8 @@ def extract_format_text(paragraph):
 def get_correct_answer_index(options, highlights):
     # Gets the index of the correct answer from options based on highlighted text.
     for i, option_text in enumerate(options):
-        for highlight in highlights:
-            if option_text in highlight:
-                return i + 1
+        if option_text in highlights:
+            return i + 1
     return None
 
 def quizizz(data, current_question, current_options, highlights):
