@@ -18,8 +18,6 @@ def questionCreate(doc, current_question, current_options, highlights, data, pla
         if text.startswith("Câu "):
             # Save the previous question's options and add a new question
             if current_question and current_options:
-                while len(current_options) < 4:
-                    current_options.append("")  # Fill in empty options if there are less than 4
                 create_quiz(data, current_question, current_options, highlights, platform)
             current_question = text
             current_options = []  # Clear the options list for the new question
@@ -37,8 +35,6 @@ def questionCreate(doc, current_question, current_options, highlights, data, pla
 # Add the last question and create a quiz
 def lastQuestion(current_question, current_options, highlights, data, platform):
     if current_question and current_options:
-        while len(current_options) < 4:
-            current_options.append("")  # Fill in empty options if there are less than 4
         create_quiz(data, current_question, current_options, highlights, platform)
 
 # Create a DataFrame from the extracted data and save it as an Excel file
