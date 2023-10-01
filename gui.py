@@ -2,7 +2,6 @@ import docx
 import tkinter as tk
 from main import open_folder, questionCreate, dataFrame 
 
-
 def run():
     file_path = open_folder()
     data = []
@@ -28,8 +27,11 @@ main_frame = tk.Frame(window)
 main_frame.pack(pady=20)
 
 # Load the logo image
-p1 = tk.PhotoImage(file = 'Images\logo.png')
-window.iconphoto(False,p1)
+try:
+    p1 = tk.PhotoImage(file = 'Images\logo.png')
+    window.iconphoto(False,p1)
+except Exception:
+    pass
 
 # Header label
 header_label = tk.Label(main_frame, text="Convert Word to Excel", font=("Helvetica", 16))
