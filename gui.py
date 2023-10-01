@@ -39,6 +39,7 @@ platform_options = ["Quizizz", "Kahoot", "Blooket"]
 platform_selection = tk.StringVar(window)
 platform_selection.set(platform_options[0])  # Set the default value
 
+# Create radio buttons
 platform_quizizz = tk.Radiobutton(main_frame, text="Quizizz", variable=platform_selection, value="Quizizz")
 platform_kahoot = tk.Radiobutton(main_frame, text="Kahoot", variable=platform_selection, value="Kahoot")
 platform_blooket = tk.Radiobutton(main_frame, text="Blooket", variable=platform_selection, value="Blooket")
