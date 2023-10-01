@@ -5,8 +5,6 @@ from tkinter.filedialog import askopenfilename
 
 
 # Helper function to open a window that specifies a file's path
-
-
 def open_folder():
     # Opens a file dialog to select a file and returns its path.
     filepath = askopenfilename()
