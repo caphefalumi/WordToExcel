@@ -3,14 +3,13 @@ from os import path, startfile
 from subprocess import Popen
 from utils import *
 
+
 # Iterate through the document to extract highlighted text and create a quiz
 def questionCreate(doc, current_question, current_options, highlights, data, platform):
     for paragraph in doc.paragraphs:
         highlighted_text = extract_format_text(paragraph)
         highlights.append(highlighted_text)
-
         text = paragraph.text.strip()
-
         # Check if the paragraph is empty
         if not text:
             continue
@@ -39,10 +38,8 @@ def lastQuestion(current_question, current_options, highlights, data, platform):
 # Create a DataFrame from the extracted data and save it as an Excel file
 def dataFrame(data, file_path):
     df = pd.DataFrame(data)
-    
     # Get the file name without extension
     file_name = path.splitext(path.basename(rf'{file_path}'))[0] + ".xlsx"    
-    
     try:
         close_excel(file_name)
         df.to_excel(file_name, index=False)

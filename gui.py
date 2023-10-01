@@ -1,6 +1,7 @@
 import docx
 import tkinter as tk
-from main import *
+from main import open_folder, questionCreate, dataFrame 
+
 
 def run():
     file_path = open_folder()
@@ -25,6 +26,10 @@ window.geometry("400x250")  # Increased the height to accommodate the radio butt
 # Main frame for organizing widgets
 main_frame = tk.Frame(window)
 main_frame.pack(pady=20)
+
+# Load the logo image
+p1 = tk.PhotoImage(file = 'Images\logo.png')
+window.iconphoto(False,p1)
 
 # Header label
 header_label = tk.Label(main_frame, text="Convert Word to Excel", font=("Helvetica", 16))
@@ -53,5 +58,10 @@ platform_blooket.grid(row=2, column=2, pady=10, sticky="n")
 status_label = tk.Label(main_frame, text="", fg="green")
 status_label.grid(row=3, column=0, columnspan=3, pady=10, sticky="n")  # Center the label using "sticky"
 
+# Note label in the bottom-right corner
+note_label = tk.Label(window, text="", fg="blue", anchor="se")
+note_label.pack(side="bottom", fill="both", expand=True)
+note_label.config(text="caphefalumi\nv2.1") 
+
 # Start the GUI application
-window.mainloop()
+window.mainloop()   
