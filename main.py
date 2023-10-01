@@ -1,5 +1,5 @@
 import pandas as pd
-from os import path
+from os import path, startfile
 from subprocess import Popen
 from utils import *
 
@@ -30,7 +30,6 @@ def questionCreate(doc, current_question, current_options, highlights, data, pla
 
     # Add the last question if it exists
     lastQuestion(current_question, current_options, highlights, data, platform)
-    cls()
 
 # Add the last question and create a quiz
 def lastQuestion(current_question, current_options, highlights, data, platform):
@@ -42,12 +41,12 @@ def dataFrame(data, file_path):
     df = pd.DataFrame(data)
     
     # Get the file name without extension
-    file_name = path.splitext(path.basename(rf'{file_path}'))[0]    
+    file_name = path.splitext(path.basename(rf'{file_path}'))[0] + ".xlsx"    
     
     try:
-        close_excel()
-        df.to_excel(f'{file_name}.xlsx', index=False)
-        Popen(rf'explorer /select,"{file_name}.xlsx"')
-        os.startfile(f'{file_name}.xlsx')
+        close_excel(file_name)
+        df.to_excel(file_name, index=False)
+        Popen(rf'explorer /select,"{file_name}"')
+        startfile(file_name)
     except Exception:
         pass

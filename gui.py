@@ -16,7 +16,6 @@ def run():
         dataFrame(data, file_path)
         status_label.config(text="Conversion completed successfully!")
         window.after(2000, window.quit)
-        cls()
 
 # Create the main window
 window = tk.Tk()

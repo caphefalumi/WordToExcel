@@ -1,12 +1,11 @@
 import re
-import os
+from os import path
 import win32com.client
 from tkinter.filedialog import askopenfilename
 
 
 # Helper function to open a window that specifies a file's path
-def cls():
-    return 
+
 
 def open_folder():
     # Opens a file dialog to select a file and returns its path.
@@ -87,15 +86,14 @@ def create_quiz(data, current_question, current_options, highlights, platform):
     elif platform == "Blooket":
         blooket(data, current_question, current_options, highlights)
 
-def close_excel():
-    # Closes an Excel application if it is open.
-    file_path = os.path.abspath(r"questions.xlsx")
-    try:
-        excel = win32com.client.Dispatch("Excel.Application")
-        excel.Visible = False  # Optional: Hide Excel window
-        workbook = excel.Workbooks.Open(file_path)
-        workbook.Close(True)  # True to save changes, False to discard changes
-        excel.Quit()
-        cls()
-    except Exception:
-        pass
+def close_excel(file_name):
+    if path.exists(file_name):
+        # Closes an Excel application if it is open.
+        try:
+            excel = win32com.client.Dispatch("Excel.Application")
+            excel.Visible = False  # Optional: Hide Excel window
+            workbook = excel.Workbooks.Open(file_name)
+            workbook.Close(True)  # True to save changes, False to discard changes
+            excel.Quit()
+        except Exception:
+            pass
