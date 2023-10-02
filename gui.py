@@ -21,7 +21,7 @@ def run():
 # Create the main window
 window = tk.Tk()
 window.title("Word To Excel Converter")
-window.geometry("400x250")  # Increased the height to accommodate the radio buttons
+window.geometry("500x280")  # Increased the height to accommodate the radio buttons
 
 # Main frame for organizing widgets
 main_frame = tk.Frame(window)
@@ -58,7 +58,7 @@ platform_kahoot.grid(row=2, column=1, pady=10)
 platform_blooket.grid(row=2, column=2, pady=10)
 
 # Choice checkboxes
-checkbox_options = ["Remove 'Câu'", "Remove 'A,B,C,D'"]
+checkbox_options = ["Xóa chữ  'Câu'", "Xóa chữ  'A,B,C,D'", "Sửa lỗi định dạng"]
 checkboxes = {}
 
 for i, option_text in enumerate(checkbox_options):
@@ -66,6 +66,8 @@ for i, option_text in enumerate(checkbox_options):
     checkboxes[option_text] = var
     checkbox = tk.Checkbutton(main_frame, text=option_text, variable=var, anchor="center")
     checkbox.grid(row=3, column=i, pady=10, sticky="w")
+#Set "Thêm dấu '.' vào cuối câu" to be always checked
+checkboxes["Sửa lỗi định dạng"].set(True)
 
 # Status label
 status_label = tk.Label(main_frame, text="", fg="green")
