@@ -13,17 +13,21 @@ WordToExcel is a Python script that converts multiple-choice questions from a Wo
 
 ## Features
 
-WordToExcel offers the following key features:
+**WordToExcel** offers the following key features:
 
 - **Conversion**: Converts multiple-choice questions from Word documents into Excel format.
 - **Organization**: Structures questions and answer options for seamless import into Quizizz.
+- **Enhanced Option Handling**: Fine-tune question and option processing with the ability to remove 'Câu' and 'A,B,C,D' independently or together.
+- **Multiple Checkbox Support**: Use multiple checkboxes simultaneously for more control over the conversion process.
+- **User-Friendly Interface**: An intuitive graphical user interface ensures a seamless experience for users of all skill levels.
+- **Export to Excel**: Export your converted data to Excel format for further analysis or sharing.
 
 ## Prerequisites
 
-Before you get started with WordToExcel, ensure that you have the following prerequisites in place:
+Before you get started with **WordToExcel**, ensure that you have the following prerequisites in place:
 
 - **Python 3.x**: Make sure you have Python 3.x installed on your system.
-- **Required Libraries**: You'll need certain Python libraries, such as pandas, docx, and re. You can install these libraries by using the following command:
+- **Required Libraries**: You'll need certain Python libraries, such as `pandas`, `python-docx`, `regex`, `tk`, and `pywin32`. You can install these libraries using the following command:
 
   ```bash
   pip install pandas
@@ -31,7 +35,6 @@ Before you get started with WordToExcel, ensure that you have the following prer
   pip install regex
   pip install tk
   pip install pywin32
-  ```
 
 - **Clone Repository**: Clone this repository to your local machine using the Git version control system or simply download the zip.
 
@@ -57,6 +60,13 @@ python gui.py
 # Contributing
 
 Contributions are welcome! If you want to contribute to this project, please fork the repository, create a new branch, and submit a pull request.
+
+# Project Status
+
+This project is considered **completed**. It has achieved its intended goals and is no longer actively maintained or updated. Feel free to use the existing code and resources for your purposes.
+
+Thank you for your interest in this project!
+
 
 # License
 
