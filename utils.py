@@ -84,32 +84,29 @@ def create_quiz(data, current_question, current_options, highlights, platform):
     elif platform == "Blooket":
         blooket(data, current_question, current_options, highlights)
 
-def process_options(current_question, current_options, selected_options):
-    # Function to add a period to the end of the option text if it doesn't have one
-    def add_period_to_option(text):
-        if not text.endswith('.'):
-            return (text.strip() + '.')
-        return text.strip()
+def process_options(current_question, current_options, selected_options, question_number):
+    pattern = r'Câu (\d+)'
+    match = re.search(pattern, current_question)
+    r_match = re.search(r'^Câu (\d+)\.', current_question)  
     
     if "Sửa lỗi định dạng" in selected_options:
         # Capitalize "Câu" if it's not already capitalized
         current_question = current_question.replace('câu', 'Câu')
-        pattern = r'Câu (\d+)'
         # Add a period after the number following "Câu" if it's missing
-        match = re.search(pattern, current_question)
-        r_match = re.search(r'^Câu (\d+)\.', current_question)  
-        
         if match and not r_match:
             # Add a period after the number
             current_question = re.sub(pattern, lambda m: f'Câu {m.group(1)}.', current_question, 1)
         # Capitalize the text after "Câu X."
         current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {match.group(2).capitalize()}', current_question)
         # Add a period to the end of each option
-        current_options = [add_period_to_option(option) for option in current_options]
-    if "Remove 'Câu'" in selected_options:
+    if "Xóa chữ 'Câu'" in selected_options:
         current_question = re.sub(r'^Câu \d+\.', '', current_question).strip().capitalize()
-    if "Remove 'A,B,C,D'" in selected_options:
+    if "Xóa chữ 'A,B,C,D'" in selected_options:
         current_options = [re.sub(r'[A-D]\.\s*', '', option).strip().capitalize() for option in current_options]
+    if match:
+        if "Gộp nhiều tệp thành một" in selected_options:
+            current_question = re.sub(pattern, f"Câu {question_number}", current_question)
+            print(question_number)
     return current_question, current_options
 def close_excel(file_name):
     if path.exists(file_name):
