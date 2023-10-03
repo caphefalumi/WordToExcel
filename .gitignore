@@ -29,7 +29,6 @@ test.py
 *.log
 *.sql
 *.sqlite
-build
 .vscode
 # OS generated files #
 ######################
