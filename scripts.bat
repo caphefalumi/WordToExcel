@@ -15,6 +15,9 @@ rem Install Python
 echo Installing Python %PYTHON_VERSION%...
 choco install python --version=%PYTHON_VERSION% --yes
 
+rem Update the PATH to include Python and Scripts directory
+SETX PATH "%PATH%;%PROGRAMDATA%\chocolatey\lib\python\tools\;%PROGRAMDATA%\chocolatey\lib\python\tools\Scripts\"
+
 rem Verify Python installation
 python --version
 
