@@ -2,7 +2,6 @@ import pandas as pd
 from os import path, startfile
 from subprocess import Popen
 from utils import *
-import random
 
 # Iterate through the document to extract highlighted text and create a quiz
 def questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_number):
@@ -45,7 +44,7 @@ def lastQuestion(current_question, current_options, highlights, data, platform, 
 def dataFrame(data, file_path):
     df = pd.DataFrame(data)
     # Get the file name without extension
-    file_name = path.splitext(path.basename(rf'{file_path}'))[0] + f"{random.randint(1,100)}.xlsx"    
+    file_name = path.splitext(path.basename(rf'{file_path}'))[0] + ".xlsx"    
     try:
         close_excel(file_name)
         df.to_excel(file_name, index=False)
