@@ -3,20 +3,22 @@ import tkinter as tk
 from main import open_folder, questionCreate, dataFrame 
 
 def run():
-    file_path = open_folder()
-    data = []
-    current_question = ""
-    current_options = []
-    highlights = []
+    file_paths = open_folder()  # Returns a tuple of selected file paths
+    platform = platform_selection.get()
+    selected_options = [option for option, var in checkboxes.items() if var.get()]
 
-    if file_path:
+    for file_path in file_paths:
+        data = []
+        current_question = ""
+        current_options = []
+        highlights = []
+
         doc = docx.Document(file_path)
-        platform = platform_selection.get()
-        selected_options = [option for option, var in checkboxes.items() if var.get()]
         questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options)
         dataFrame(data, file_path)
-        status_label.config(text="Conversion completed successfully!")
-        window.after(2000, window.quit)
+
+    status_label.config(text="Conversion completed successfully!")
+    window.after(2000, window.quit)
 
 # Create the main window
 window = tk.Tk()
@@ -53,29 +55,36 @@ platform_kahoot = tk.Radiobutton(main_frame, text="Kahoot", variable=platform_se
 platform_blooket = tk.Radiobutton(main_frame, text="Blooket", variable=platform_selection, value="Blooket")
 
 # Place the radio buttons side by side
-platform_quizizz.grid(row=2, column=0, pady=10)
-platform_kahoot.grid(row=2, column=1, pady=10)
-platform_blooket.grid(row=2, column=2, pady=10)
+platform_quizizz.grid(row=2, column=0, pady=10, padx=10, sticky="w")
+platform_kahoot.grid(row=2, column=1, pady=10, padx=10, sticky="w")
+platform_blooket.grid(row=2, column=2, pady=10, padx=10, sticky="w")
 
 # Choice checkboxes
-checkbox_options = ["Xóa chữ  'Câu'", "Xóa chữ  'A,B,C,D'", "Sửa lỗi định dạng"]
+checkbox_options = ["Xóa chữ 'Câu'", "Xóa chữ 'A,B,C,D'", "Sửa lỗi định dạng"]
 checkboxes = {}
 
 for i, option_text in enumerate(checkbox_options):
     var = tk.BooleanVar()
     checkboxes[option_text] = var
-    checkbox = tk.Checkbutton(main_frame, text=option_text, variable=var, anchor="center")
-    checkbox.grid(row=3, column=i, pady=10, sticky="w")
-#Set "Thêm dấu '.' vào cuối câu" to be always checked
+    checkbox = tk.Checkbutton(main_frame, text=option_text, variable=var, anchor="w")
+    checkbox.grid(row=3, column=i, pady=10, padx=10, sticky="w")
+
+# Set "Sửa lỗi định dạng" checkbox to be always checked
 checkboxes["Sửa lỗi định dạng"].set(True)
+
+# Additional checkbox for merging files
+s_checkbox_options = ["Gộp nhiều tệp thành một"]
+s_var = tk.BooleanVar()
+checkbox = tk.Checkbutton(main_frame, text=s_checkbox_options[0], variable=s_var, anchor="center")
+checkbox.grid(row=4, column=0, pady=10, padx=10, sticky="w")
 
 # Status label
 status_label = tk.Label(main_frame, text="", fg="green")
-status_label.grid(row=4, column=0, columnspan=3, pady=10)  # Center the label using "sticky"
+status_label.grid(row=5, column=0, columnspan=3, pady=10, padx=10)  # Center the label using "sticky"
 
 # Note label in the bottom-right corner with padding
 note_label = tk.Label(window, text="", fg="blue", anchor="se", padx=10)
-note_label.pack(side="bottom", fill="both", expand=True)
+note_label.pack(side="bottom", fill="both")
 note_label.config(text="caphefalumi v2.1")  # Updated text
 
 # Start the GUI application
