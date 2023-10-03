@@ -2,10 +2,17 @@ import docx
 import tkinter as tk
 from main import open_folder, questionCreate, dataFrame 
 
+
 def run():
     file_paths = open_folder()  # Returns a tuple of selected file paths
     platform = platform_selection.get()
     selected_options = [option for option, var in checkboxes.items() if var.get()]
+    selected_options.extend(s_checkbox_options)
+    merge_files = s_var.get()  # Check if the "Gộp nhiều tệp thành một" checkbox is selected
+
+    # Initialize a list to collect data from all selected files
+    all_data = []
+    question_number = 1
 
     for file_path in file_paths:
         data = []
@@ -14,8 +21,16 @@ def run():
         highlights = []
 
         doc = docx.Document(file_path)
-        questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options)
-        dataFrame(data, file_path)
+        question_number = questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_number)
+        # Append the data to the list if not merging files
+        if not merge_files:
+            dataFrame(data, file_path)
+        else:
+            all_data.extend(data)  # Collect data from all selected files
+
+    # Create a single Excel file containing the combined data if merging files
+    if merge_files:
+        dataFrame(all_data, "Merged_File.xlsx")
 
     status_label.config(text="Conversion completed successfully!")
     window.after(2000, window.quit)
