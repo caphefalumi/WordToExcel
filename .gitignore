@@ -24,6 +24,7 @@ __pycache__
 # Application #
 ######################
 *.xlsx
+test.py
 # Logs and databases #
 ######################
 *.log
