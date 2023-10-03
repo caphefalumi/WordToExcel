@@ -3,7 +3,6 @@
 *.com
 *.class
 *.dll
-*.exe
 *.o
 *.so
 *.spec
@@ -31,7 +30,6 @@ test.py
 *.sql
 *.sqlite
 build
-dist
 .vscode
 # OS generated files #
 ######################
