@@ -84,7 +84,7 @@ def create_quiz(data, current_question, current_options, highlights, platform):
     elif platform == "Blooket":
         blooket(data, current_question, current_options, highlights)
 
-def process_options(current_question, current_options, selected_options, question_number):
+def process_options(current_question, current_options, highlights, selected_options, question_number):
     pattern = r'Câu (\d+)'
     match = re.search(pattern, current_question)
     r_match = re.search(r'^Câu (\d+)\.', current_question)  
@@ -98,16 +98,19 @@ def process_options(current_question, current_options, selected_options, questio
             current_question = re.sub(pattern, lambda m: f'Câu {m.group(1)}.', current_question, 1)
         # Capitalize the text after "Câu X."
         current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {match.group(2).capitalize()}', current_question)
+        current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1)}. {match.group(2).strip().capitalize()}', option) for option in current_options]
+        
         # Add a period to the end of each option
     if "Xóa chữ 'Câu'" in selected_options:
         current_question = re.sub(r'^Câu \d+\.', '', current_question).strip().capitalize()
     if "Xóa chữ 'A,B,C,D'" in selected_options:
-        current_options = [re.sub(r'[A-D]\.\s*', '', option).strip().capitalize() for option in current_options]
+        current_options = [re.sub(r'[a-dA-D]\.\s*', '', option).strip().capitalize() for option in current_options]
+        highlights = [re.sub(r'[a-dA-D]\.\s*', '', highlight).strip().capitalize() for highlight in highlights]
     if match:
         if "Gộp nhiều tệp thành một" in selected_options:
             current_question = re.sub(pattern, f"Câu {question_number}", current_question)
-            print(question_number)
-    return current_question, current_options
+    return current_question, current_options, highlights
+
 def close_excel(file_name):
     if path.exists(file_name):
         # Closes an Excel application if it is open.
@@ -117,5 +120,5 @@ def close_excel(file_name):
             workbook = excel.Workbooks.Open(file_name)
             workbook.Close(True)  # True to save changes, False to discard changes
             excel.Quit()
-        except Exception:
-            pass
+        except Exception as e:
+            print(e)

@@ -12,7 +12,7 @@ def run():
 
     # Initialize a list to collect data from all selected files
     all_data = []
-    question_number = 1
+    question_numbers = 1
 
     for file_path in file_paths:
         data = []
@@ -21,7 +21,7 @@ def run():
         highlights = []
 
         doc = docx.Document(file_path)
-        question_number = questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_number)
+        question_numbers = questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers)
         # Append the data to the list if not merging files
         if not merge_files:
             dataFrame(data, file_path)
