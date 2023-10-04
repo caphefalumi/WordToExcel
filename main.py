@@ -7,7 +7,6 @@ from utils import *
 def questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers):
     for paragraph in doc.paragraphs:
         highlighted_text = extract_format_text(paragraph)
-        if selected_options == "Xóa chữ 'A,B,C,D'": highlights.append(re.sub(r'[A-D]\.\s*', '', highlighted_text).capitalize())
         highlights.append(highlighted_text)
         text = paragraph.text.strip()
 
@@ -41,15 +40,23 @@ def lastQuestion(current_question, current_options, highlights, data, platform, 
         create_quiz(data, current_question, current_options, highlights, platform)
         return question_numbers
 
+
+def errorInitiates(code):
+    if code == True and exception_flag: return "Không thể ghi đè, vui lòng đóng file Excel"
+    return
+
 # Create a DataFrame from the extracted data and save it as an Excel file
 def dataFrame(data, file_path):
+    global exception_flag 
+    exception_flag = False
+    
     df = pd.DataFrame(data)
     # Get the file name without extension
-    file_name = path.splitext(path.basename(rf'{file_path}'))[0] + "1.xlsx"    
+    file_name = path.splitext(path.basename(rf'{file_path}'))[0] + ".xlsx"    
     try:
-        close_excel(rf"{file_name}")
+        close_excel(rf"{file_path}")
         df.to_excel(file_name, index=False)
         Popen(rf'explorer /select,"{file_name}"')
         startfile(file_name)
-    except Exception as e:
-        print(e)
+    except Exception:
+        exception_flag = True

@@ -1,6 +1,6 @@
 import docx
 import tkinter as tk
-from main import open_folder, questionCreate, dataFrame 
+from main import open_folder, questionCreate, dataFrame, errorInitiates
 
 
 def run():
@@ -25,14 +25,17 @@ def run():
         # Append the data to the list if not merging files
         if not merge_files:
             dataFrame(data, file_path)
+            error_label.config(text = errorInitiates(code=True))
+            
         else:
             all_data.extend(data)  # Collect data from all selected files
-
+            error_label.config(text = errorInitiates(code=True))
+            
     # Create a single Excel file containing the combined data if merging files
     if merge_files:
         dataFrame(all_data, "Merged_File.xlsx")
-
-    status_label.config(text="Conversion completed successfully!")
+    
+    status_label.config(text = "Conversion completed successfully!")
     window.after(2000, window.quit)
 
 # Create the main window
@@ -97,10 +100,12 @@ checkbox.grid(row=4, column=0, pady=10, padx=10, sticky="w")
 status_label = tk.Label(main_frame, text="", fg="green")
 status_label.grid(row=5, column=0, columnspan=3, pady=10, padx=10)  # Center the label using "sticky"
 
+# Error label
+error_label = tk.Label(main_frame, text="", fg="red")
+error_label.grid(row=6, column=0, columnspan=3, pady=10, padx=10)  # Center the label using "sticky"
 # Note label in the bottom-right corner with padding
-note_label = tk.Label(window, text="", fg="blue", anchor="se", padx=10)
-note_label.pack(side="bottom", fill="both")
-note_label.config(text="caphefalumi v2.1")  # Updated text
+note_label = tk.Label(window, text="caphefalumi v2.1", fg="blue", anchor="w", padx=10)
+note_label.pack(side="bottom")
 
 # Start the GUI application
 window.mainloop()

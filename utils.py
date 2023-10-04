@@ -120,5 +120,5 @@ def close_excel(file_name):
             workbook = excel.Workbooks.Open(file_name)
             workbook.Close(True)  # True to save changes, False to discard changes
             excel.Quit()
-        except Exception as e:
-            print(e)
+        except Exception: 
+            pass
