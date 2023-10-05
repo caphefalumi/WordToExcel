@@ -103,9 +103,12 @@ def process_options(current_question, current_options, highlights, selected_opti
         # Add a period to the end of each option
     if "Xóa chữ 'Câu'" in selected_options:
         current_question = re.sub(r'^Câu \d+\.', '', current_question).strip().capitalize()
+        
     if "Xóa chữ 'A,B,C,D'" in selected_options:
         current_options = [re.sub(r'[a-dA-D]\.\s*', '', option).strip().capitalize() for option in current_options]
         highlights = [re.sub(r'[a-dA-D]\.\s*', '', highlight).strip().capitalize() for highlight in highlights]
+    if "Thêm chữ  'Câu'" in selected_options and not "Câu" in current_question:
+        current_question = re.sub(r"(\d+)", r'Câu \1', current_question, 1)
     if match:
         if "Gộp nhiều tệp thành một" in selected_options:
             current_question = re.sub(pattern, f"Câu {question_number}", current_question)

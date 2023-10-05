@@ -41,15 +41,9 @@ def lastQuestion(current_question, current_options, highlights, data, platform, 
         return question_numbers
 
 
-def errorInitiates(code):
-    if code == True and exception_flag: return "Không thể ghi đè, vui lòng đóng file Excel"
-    return
 
 # Create a DataFrame from the extracted data and save it as an Excel file
 def dataFrame(data, file_path):
-    global exception_flag 
-    exception_flag = False
-    
     df = pd.DataFrame(data)
     # Get the file name without extension
     file_name = path.splitext(path.basename(rf'{file_path}'))[0] + ".xlsx"    
@@ -59,4 +53,4 @@ def dataFrame(data, file_path):
         Popen(rf'explorer /select,"{file_name}"')
         startfile(file_name)
     except Exception:
-        exception_flag = True
+        pass
