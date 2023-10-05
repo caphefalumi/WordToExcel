@@ -2,4 +2,4 @@ app.exe filter=lfs diff=lfs merge=lfs -text
 *.py linguist-detectable=true
 *.html linguist-detectable=false
 *.xml linguist-detectable=false
-*.TeX linguist-detectable=false
+*.tex linguist-detectable=false
