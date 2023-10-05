@@ -1,3 +1,4 @@
 app.exe filter=lfs diff=lfs merge=lfs -text
+
 *.* linguist-detectable=false
 *.py linguist-detectable=true
