@@ -65,13 +65,19 @@ python gui.py
 
 Contributions are welcome! If you want to contribute to this project, please fork the repository, create a new branch, and submit a pull request.
 
+# License
+
+This project is licensed under the MIT License.
+
 # Project Status
 
 This project is considered **completed**. It has achieved its intended goals and is no longer actively maintained or updated. Feel free to use the existing code and resources for your purposes.
 
-Thank you for your interest in this project!
+Thank you for using Word To Excel Converter! I hope you find this release helpful and efficient for your needs.
+
+Happy converting!
+
+Best regards,
+caphefalumi
 
 
-# License
-
-This project is licensed under the MIT License.
