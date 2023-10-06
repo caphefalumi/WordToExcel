@@ -1,4 +1,4 @@
-import os, sys, docx
+import docx
 import tkinter as tk
 from PIL import Image, ImageTk
 from main import open_folder, questionCreate, dataFrame
