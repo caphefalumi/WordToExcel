@@ -91,7 +91,6 @@ def process_options(current_question, current_options, highlights, selected_opti
     if "Sửa lỗi định dạng" in selected_options:
         # Capitalize "Câu" if it's not already capitalized
         current_question = current_question.replace('câu', 'Câu')
-        current_options = [option.capitalize() for option in current_options]
         # Add a period after the number following "Câu" if it's missing
         if match and not r_match:
             # Add a period after the number
@@ -99,8 +98,8 @@ def process_options(current_question, current_options, highlights, selected_opti
 
         # Capitalize the text after "Câu X."
         current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {match.group(2).capitalize()}', current_question)
-        current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1)}. {match.group(2).strip().capitalize()}', option) for option in current_options]
-        highlights = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1)}. {match.group(2).strip().capitalize()}', highlight) for highlight in highlights]
+        current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1).capitalize()}. {match.group(2).strip().capitalize()}', option) for option in current_options]
+        highlights = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1).capitalize()}. {match.group(2).strip().capitalize()}', highlight) for highlight in highlights]
         
         # Add a period to the end of each option
     if "Xóa chữ 'Câu'" in selected_options:

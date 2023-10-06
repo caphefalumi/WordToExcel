@@ -1,36 +1,62 @@
-import docx
+import os, sys, docx
 import tkinter as tk
+from PIL import Image, ImageTk
 from main import open_folder, questionCreate, dataFrame
+
+def getAbsoluteResourcePath(relativePath):
+    try:
+        # PyInstaller stores data files in a tmp folder refered to as _MEIPASS
+        basePath = sys._MEIPASS
+    except Exception:
+        # If not running as a PyInstaller created binary, try to find the data file as
+        # an installed Python egg
+        try:
+            basePath = os.path.dirname(sys.modules['WordToExcel'].__file__)
+        except Exception:
+            basePath = ''
+
+        # If the egg path does not exist, assume we're running as non-packaged
+        if not os.path.exists(os.path.join(basePath, relativePath)):
+            basePath = 'WordToExcel'
+
+    path = os.path.join(basePath, relativePath)
+
+    # If the path still doesn't exist, this function won't help you
+    if not os.path.exists(path):
+        return None
+
+    return path
 
 def run():
     file_paths = open_folder()  # Returns a tuple of selected file paths
-    platform = platform_selection.get()
-    selected_options = [option for option, var in checkboxes.items() if var.get()]
+    if file_paths != "":
+        platform = platform_selection.get()
+        selected_options = [option for option, var in checkboxes.items() if var.get()]
 
-    # Initialize a list to collect data from all selected files
-    all_data = []
-    question_numbers = 1
+        # Initialize a list to collect data from all selected files
+        all_data = []
+        question_numbers = 1
 
-    for file_path in file_paths:
-        data = []
-        current_question = ""
-        current_options = []
-        highlights = []
+        for file_path in file_paths:
+            data = []
+            current_question = ""
+            current_options = []
+            highlights = []
 
-        doc = docx.Document(file_path)
-        question_numbers = questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers)
-        # Append the data to the list if not merging files
-        if "Gộp nhiều tệp thành một" not in selected_options:
-            dataFrame(data, file_path, selected_options)
-        else:
-            all_data.extend(data)  # Collect data from all selected files
-            
-    # Create a single Excel file containing the combined data if merging files
-    if "Gộp nhiều tệp thành một" in selected_options:
-        dataFrame(all_data, "Merged_File.xlsx", selected_options)
-    
-    status_label.config(text = "Conversion completed successfully!")
-    window.after(2000, window.quit)
+            doc = docx.Document(file_path)
+            question_numbers = questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers)
+            # Append the data to the list if not merging files
+            if "Gộp nhiều tệp thành một" not in selected_options:
+                dataFrame(data, file_path, selected_options)
+            else:
+                all_data.extend(data)  # Collect data from all selected files
+                
+        # Create a single Excel file containing the combined data if merging files
+        if "Gộp nhiều tệp thành một" in selected_options:
+            dataFrame(all_data, "Merged_File.xlsx", selected_options)
+        
+        status_label.config(text = "Conversion completed successfully!")
+        window.after(2000, window.quit)
 
 # Create the main window
 window = tk.Tk()
@@ -43,12 +69,11 @@ main_frame.pack(pady=20, padx=10)
 
 # Load the logo image
 try:
-    p1 = tk.PhotoImage(file='Images\logo.png')
-    window.iconphoto(False, p1)
+    logo_image = Image.open(r"Images\logo.png")
+    logo_photo = ImageTk.PhotoImage(logo_image)
+    window.iconphoto(False, logo_photo)
 except Exception:
-    p1 = tk.PhotoImage(file='logo.png')
-    window.iconphoto(False, p1)
-
+    pass
 # Header label
 header_label = tk.Label(main_frame, text="Convert Word to Excel", font=("Helvetica", 16))
 header_label.grid(row=0, column=0, columnspan=3, pady=10)  # Center the label using "sticky"
