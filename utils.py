@@ -1,6 +1,4 @@
-import re
-from os import path
-import win32com.client
+import os, re, subprocess
 from tkinter.filedialog import askopenfilenames
 
 
@@ -13,12 +11,13 @@ def open_folder():
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
 def is_option(paragraph):
     # Checks if a paragraph starts with an option (A., B., C., D.).
-    return paragraph.startswith(("A.", "B.", "C.", "D."))
+    
+    return paragraph.startswith(("A.", "B.", "C.", "D.","a.", "b.", "c.", "d."))
 
 # Helper function to split options that are on the same line
 def split_options(text):
     # Splits options that are on the same line into a list.
-    return re.split(r'\s+(?=[A-D]\.)', text)
+    return re.split(r'\s+(?=[a-dA-D]\.)', text)
 
 def extract_format_text(paragraph):
     # Extracts formatted text (highlighted or bold) from a paragraph.
@@ -92,13 +91,16 @@ def process_options(current_question, current_options, highlights, selected_opti
     if "Sửa lỗi định dạng" in selected_options:
         # Capitalize "Câu" if it's not already capitalized
         current_question = current_question.replace('câu', 'Câu')
+        current_options = [option.capitalize() for option in current_options]
         # Add a period after the number following "Câu" if it's missing
         if match and not r_match:
             # Add a period after the number
             current_question = re.sub(pattern, lambda m: f'Câu {m.group(1)}.', current_question, 1)
+
         # Capitalize the text after "Câu X."
         current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {match.group(2).capitalize()}', current_question)
         current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1)}. {match.group(2).strip().capitalize()}', option) for option in current_options]
+        highlights = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1)}. {match.group(2).strip().capitalize()}', highlight) for highlight in highlights]
         
         # Add a period to the end of each option
     if "Xóa chữ 'Câu'" in selected_options:
@@ -107,21 +109,21 @@ def process_options(current_question, current_options, highlights, selected_opti
     if "Xóa chữ 'A,B,C,D'" in selected_options:
         current_options = [re.sub(r'[a-dA-D]\.\s*', '', option).strip().capitalize() for option in current_options]
         highlights = [re.sub(r'[a-dA-D]\.\s*', '', highlight).strip().capitalize() for highlight in highlights]
-    if "Thêm chữ  'Câu'" in selected_options and not "Câu" in current_question:
+        
+    if "Thêm chữ 'Câu'" in selected_options and not "Câu" in current_question:
         current_question = re.sub(r"(\d+)", r'Câu \1', current_question, 1)
+        
     if match:
         if "Gộp nhiều tệp thành một" in selected_options:
             current_question = re.sub(pattern, f"Câu {question_number}", current_question)
+
     return current_question, current_options, highlights
 
+
 def close_excel(file_name):
-    if path.exists(file_name):
+    if os.path.exists(file_name):
         # Closes an Excel application if it is open.
         try:
-            excel = win32com.client.Dispatch("Excel.Application")
-            excel.Visible = False  # Optional: Hide Excel window
-            workbook = excel.Workbooks.Open(file_name)
-            workbook.Close(True)  # True to save changes, False to discard changes
-            excel.Quit()
+            subprocess.call("TASKKILL /F /IM EXCEL.EXE", shell=True, stdout=subprocess.DEVNULL)
         except Exception: 
             pass

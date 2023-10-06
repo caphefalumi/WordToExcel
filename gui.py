@@ -6,9 +6,6 @@ def run():
     file_paths = open_folder()  # Returns a tuple of selected file paths
     platform = platform_selection.get()
     selected_options = [option for option, var in checkboxes.items() if var.get()]
-    selected_options.extend(s_checkbox_options)
-    selected_options.extend(t_checkbox_options)
-    merge_files = s_var.get()  # Check if the "Gộp nhiều tệp thành một" checkbox is selected
 
     # Initialize a list to collect data from all selected files
     all_data = []
@@ -23,15 +20,14 @@ def run():
         doc = docx.Document(file_path)
         question_numbers = questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers)
         # Append the data to the list if not merging files
-        if not merge_files:
-            dataFrame(data, file_path)
-            
+        if "Gộp nhiều tệp thành một" not in selected_options:
+            dataFrame(data, file_path, selected_options)
         else:
             all_data.extend(data)  # Collect data from all selected files
             
     # Create a single Excel file containing the combined data if merging files
-    if merge_files:
-        dataFrame(all_data, "Merged_File.xlsx")
+    if "Gộp nhiều tệp thành một" in selected_options:
+        dataFrame(all_data, "Merged_File.xlsx", selected_options)
     
     status_label.config(text = "Conversion completed successfully!")
     window.after(2000, window.quit)
@@ -76,51 +72,27 @@ platform_kahoot.grid(row=2, column=1, pady=10, padx=10, sticky="w")
 platform_blooket.grid(row=2, column=2, pady=10, padx=10, sticky="w")
 
 # Choice checkboxes
-checkbox_options = ["Xóa chữ 'Câu'", "Xóa chữ 'A,B,C,D'", "Sửa lỗi định dạng",""]
+checkbox_options = ["Xóa chữ 'Câu'", "Xóa chữ 'A,B,C,D'", "Sửa lỗi định dạng","Thêm chữ 'Câu'", "Xáo trộn câu hỏi", "Gộp nhiều tệp thành một"]
 checkboxes = {}
 
 for i, option_text in enumerate(checkbox_options):
     var = tk.BooleanVar()
     checkboxes[option_text] = var
     checkbox = tk.Checkbutton(main_frame, text=option_text, variable=var, anchor="w")
-    checkbox.grid(row=3, column=i, pady=10, padx=10, sticky="w")
+    checkbox.grid(row=3 + (i // 3), column=i % 3, pady=10, padx=10, sticky="w")
 
 # Set "Sửa lỗi định dạng" checkbox to be always checked
 checkboxes["Sửa lỗi định dạng"].set(True)
 
-
-# Additional checkboxes for "Thêm chữ 'Câu" and "Thêm chữ 'A,B,C,D'"
-t_checkbox_options = ["Thêm chữ  'Câu'"]
-t_var = {}
-for i, option_text in enumerate(t_checkbox_options):
-    var = tk.BooleanVar()
-    t_var[option_text] = var
-    checkbox = tk.Checkbutton(main_frame, text=option_text, variable=var, anchor="w")
-    checkbox.grid(row=4, column=i, pady=10, padx=10, sticky="w")
-
-
-# Additional checkbox for merging files
-s_checkbox_options = ["Gộp nhiều tệp thành một"]
-s_var = tk.BooleanVar()
-checkbox = tk.Checkbutton(main_frame, text=s_checkbox_options[0], variable=s_var, anchor="center")
-checkbox.grid(row=4, column=1, pady=10, padx=10, sticky="w")
-
-
 # Create a frame for the version label
 # Version label
-version_label = tk.Label(main_frame, text="Author: caphefalumi", fg="blue", font=("Helvetica", 8))
+version_label = tk.Label(main_frame, text="Author: caphefalumi", fg="blue", font=("Open sans", 8))
 version_label.grid(row=5, column=2, sticky="se", padx=5, pady=10)
 
 
 # Status label
 status_label = tk.Label(main_frame, text="", fg="green")
 status_label.grid(row=5, column=0, columnspan=3, pady=10, padx=10)  # Center the label using "sticky"
-
-# Error label
-error_label = tk.Label(main_frame, text="", fg="red")
-error_label.grid(row=5, column=0, columnspan=3, pady=10, padx=10)  # Center the label using "sticky"
-# Note label in the bottom-right corner with padding
-
 
 # Start the GUI application
 window.mainloop()
