@@ -1,9 +1,8 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
 
-
 # WordToExcel
 
-WordToExcel is a Python script that converts multiple-choice questions from a Word document into Excel format suitable for Quizizz. This tool simplifies the process of creating quizzes for Quizizz using questions stored in Word documents.
+WordToExcel is a Python script that simplifies the process of converting multiple-choice questions from a Word document into Excel format suitable for Quizizz. This tool streamlines the creation of quizzes for Quizizz using questions stored in Word documents.
 
 ## Table of Contents
 
@@ -18,8 +17,8 @@ WordToExcel is a Python script that converts multiple-choice questions from a Wo
 
 **WordToExcel** offers the following key features:
 
-- **Conversion**: Converts multiple-choice questions from Word documents into Excel format.
-- **Organization**: Structures questions and answer options for seamless import into Quizizz.
+- **Conversion**: Convert multiple-choice questions from Word documents into Excel format.
+- **Organization**: Structure questions and answer options for easy import into Quizizz.
 - **Enhanced Option Handling**: Fine-tune question and option processing with the ability to remove 'Câu' and 'A,B,C,D' independently or together.
 - **Multiple Checkbox Support**: Use multiple checkboxes simultaneously for more control over the conversion process.
 - **User-Friendly Interface**: An intuitive graphical user interface ensures a seamless experience for users of all skill levels.
@@ -27,16 +26,18 @@ WordToExcel is a Python script that converts multiple-choice questions from a Wo
 
 ## Prerequisites
 
-Before you get started with **WordToExcel**, ensure that you have the following prerequisites in place:
+Before you get started with **WordToExcel**, make sure you have the following prerequisites in place:
 
-- **Python 3.x**: Make sure you have Python 3.x installed on your system.
-- **Required Libraries**: You'll need certain Python libraries, such as `pandas`, `python-docx`, `regex`, `tk`, and `pywin32`. You can install these libraries using the following command:
+- **Python 3.x**: Ensure that you have Python 3.x installed on your system.
+- **Required Libraries**: You'll need certain Python libraries, such as `subprocess`, `pandas`, `python-docx`, `regex`, `tk`, `Pillow`, and `pywin32`. You can install these libraries using the following commands:
 
   ```bash
+  pip install subprocess.run
   pip install pandas
   pip install python-docx
   pip install regex
   pip install tk
+  pip install Pillow
   pip install pywin32
 
 - **Clone Repository**: Clone this repository to your local machine using the Git version control system or simply download the zip.
@@ -57,7 +58,7 @@ To make use of WordToExcel, follow these simple steps:
 python gui.py
 ```
 
-3. **Run the App**: Double click on app.exe for usage:
+3. **Run the App**: From the directory navigate to dist\WordToExcel and double-click the WordToExcel.exe for usage **If the file is not allowed to run by the system, follow these steps: Double click on the file --> Properties --> Select unblock --> Apply**
 4. **WordToExcel** will generate an Excel file with the converted questions and options in the current path.
 
 # Contributing
