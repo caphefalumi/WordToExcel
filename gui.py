@@ -50,6 +50,9 @@ try:
     logo_photo = ImageTk.PhotoImage(logo_image)
     window.iconphoto(False, logo_photo)
 except Exception:
+    logo_image = Image.open(r"logo.png")
+    logo_photo = ImageTk.PhotoImage(logo_image)
+    window.iconphoto(False, logo_photo)
     pass
 # Header label
 header_label = tk.Label(main_frame, text="Convert Word to Excel", font=("Helvetica", 16))

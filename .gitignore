@@ -5,6 +5,8 @@
 *.o
 *.so
 *.spec
+*.zip
+*.rar
 __pycache__
 # Application #
 ######################
