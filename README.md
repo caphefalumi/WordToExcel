@@ -42,7 +42,7 @@ Before you get started with **WordToExcel**, make sure you have the following pr
 
 - **Clone Repository**: Clone this repository to your local machine using the Git version control system or simply download the zip.
 
-## [Download the .exe file by clicking this text](https://drive.google.com/u/0/uc?id=1avXqeO_r-HuyTb69ef4Y8e1JQ9FemQK5&export=download)
+## [Download the .exe file by clicking this text](https://drive.google.com/u/0/uc?id=1PzQND5HO16b-ImPyUR88FY7iNnz4mUcB&export=download)
 
 ## Usage
 
