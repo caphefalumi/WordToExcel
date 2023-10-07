@@ -4,7 +4,7 @@
 
 ## [Download the .exe file by clicking this text](https://drive.google.com/u/0/uc?id=1JVBmxD7H4Co82MgJYGzsS_Dd0YM-OvUF&export=download)
 
-## Table of Contents
+## 📝Table of Contents
 
 - [Features](#features)
 - [Prerequisites](#prerequisites)
@@ -13,7 +13,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-## Features
+## 💡Features
 
 **WordToExcel** offers the following key features:
 
@@ -24,7 +24,7 @@
 - **User-Friendly Interface**: An intuitive graphical user interface ensures a seamless experience for users of all skill levels.
 - **Export to Excel**: Export your converted data to Excel format for further analysis or sharing.
 
-## Prerequisites
+## ⛓️ Prerequisites
 
 Before you get started with **WordToExcel**, make sure you have the following prerequisites in place:
 
@@ -43,7 +43,7 @@ Before you get started with **WordToExcel**, make sure you have the following pr
 - **Clone Repository**: Clone this repository to your local machine using the Git version control system or simply download the zip.
 
 
-## Usage
+## 🎈 Usage
 
 To make use of WordToExcel, follow these simple steps:
 
@@ -58,15 +58,15 @@ python gui.py
 3. **Run the App**: From the directory navigate to dist\WordToExcel and double-click the WordToExcel.exe for usage **If the file is not allowed to run by the system, follow these steps: Double click on the file --> Properties --> Select unblock --> Apply**
 4. **WordToExcel** will generate an Excel file with the converted questions and options in the current path.
 
-# Contributing
+# 🚀 Contributing
 
 Contributions are welcome! If you want to contribute to this project, please fork the repository, create a new branch, and submit a pull request.
 
-# License
+# 🏛️ License
 
 This project is licensed under the MIT License.
 
-# Project Status
+# ✍️Project Status
 
 This project is considered **completed**. It has achieved its intended goals and is no longer actively maintained or updated. Feel free to use the existing code and resources for your purposes.
 
