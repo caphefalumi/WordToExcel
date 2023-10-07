@@ -76,12 +76,15 @@ def blooket(data, current_question, current_options, highlights):
 
 def create_quiz(data, current_question, current_options, highlights, platform):
     # Creates a question based on the specified platform and adds it to the data list.
-    if platform == "Quizizz":
-        quizizz(data, current_question, current_options, highlights)
-    elif platform == "Kahoot":
-        kahoot(data, current_question, current_options, highlights)
-    elif platform == "Blooket":
-        blooket(data, current_question, current_options, highlights)
+    try:
+        if platform == "Quizizz":
+            quizizz(data, current_question, current_options, highlights)
+        elif platform == "Kahoot":
+            kahoot(data, current_question, current_options, highlights)
+        elif platform == "Blooket":
+            blooket(data, current_question, current_options, highlights)
+    except Exception:
+        pass
 
 def process_options(current_question, current_options, highlights, selected_options, question_number):
     pattern = r'Câu (\d+)'
