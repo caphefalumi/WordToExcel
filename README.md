@@ -2,7 +2,7 @@
 
 # WordToExcel
 
-WordToExcel is a Python script that simplifies the process of converting multiple-choice questions from a Word document into Excel format suitable for Quizizz. This tool streamlines the creation of quizzes for Quizizz using questions stored in Word documents.
+## [Download the .exe file by clicking this text](https://drive.google.com/u/0/uc?id=1JVBmxD7H4Co82MgJYGzsS_Dd0YM-OvUF&export=download)
 
 ## Table of Contents
 
@@ -76,6 +76,6 @@ Thank you for using Word To Excel Converter! I hope you find this release helpfu
 Happy converting!
 
 Best regards,
-caphefalumi
+_caphefalumi_
 
 
