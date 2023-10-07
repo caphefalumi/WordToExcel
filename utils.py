@@ -104,7 +104,6 @@ def process_options(current_question, current_options, highlights, selected_opti
         current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1).capitalize()}. {match.group(2).strip().capitalize()}', option) for option in current_options]
         highlights = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1).capitalize()}. {match.group(2).strip().capitalize()}', highlight) for highlight in highlights]
         
-        # Add a period to the end of each option
     if "Xóa chữ 'Câu'" in selected_options:
         current_question = re.sub(r'^Câu \d+\.', '', current_question).strip().capitalize()
         
