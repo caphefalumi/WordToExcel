@@ -76,6 +76,7 @@ Thank you for using Word To Excel Converter! I hope you find this release helpfu
 Happy converting!
 
 Best regards,
+
 _caphefalumi_
 
 
