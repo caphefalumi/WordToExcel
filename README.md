@@ -40,7 +40,7 @@ Before you get started with **WordToExcel**, make sure you have the following pr
   pip install Pillow
   pip install pywin32
 
-- **Clone Repository**: Clone this repository to your local machine using the Git version control system or simply download the zip, you can download the exe [here](https://drive.google.com/file/d/1avXqeO_r-HuyTb69ef4Y8e1JQ9FemQK5/view?usp=sharing)
+- **Clone Repository**: Clone this repository to your local machine using the Git version control system or simply download the zip, you can download the exe [here](https://drive.google.com/u/0/uc?id=1avXqeO_r-HuyTb69ef4Y8e1JQ9FemQK5&export=download)
 
 ## Installation
 
