@@ -2,7 +2,7 @@
 
 # WordToExcel
 
-## [Download the .exe file by clicking this text](https://drive.google.com/u/0/uc?id=1JVBmxD7H4Co82MgJYGzsS_Dd0YM-OvUF&export=download)
+## ✨ [Download the .exe file by clicking this text](https://drive.google.com/u/0/uc?id=1JVBmxD7H4Co82MgJYGzsS_Dd0YM-OvUF&export=download) ✨
 
 ## 📝Table of Contents
 
