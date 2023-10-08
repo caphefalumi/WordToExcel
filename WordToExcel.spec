@@ -45,4 +45,4 @@ coll = COLLECT(
     upx_exclude=[],
     name='WordToExcel',
 )
-shutil.copyfile('Images/logo.png', '{0}/logo.png'.format(DISTPATH))
+shutil.copyfile('Images/logo.png', '{0}/WordToExcel/logo.png'.format(DISTPATH))
