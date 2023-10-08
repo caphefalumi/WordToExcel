@@ -3,6 +3,7 @@ from os import path, startfile
 from subprocess import Popen
 from utils import *
 
+
 # Iterate through the document to extract highlighted text and create a quiz
 def questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers):
     for paragraph in doc.paragraphs:
