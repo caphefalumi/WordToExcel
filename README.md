@@ -2,7 +2,7 @@
 
 # WordToExcel
 
-## 	🔗[Click here for instructions on using the Excel file](https://support.quizizz.com/hc/en-us/articles/115003688491-Import-a-Quiz-From-a-Spreadsheet#:~:text=Open%20quiz%20editor%2C%20click%20the,the%20questions%20from%20the%20spreadsheet.)	🔗
+## 🔗[Click here for instructions on using the Excel file](https://support.quizizz.com/hc/en-us/articles/115003688491-Import-a-Quiz-From-a-Spreadsheet#:~:text=Open%20quiz%20editor%2C%20click%20the,the%20questions%20from%20the%20spreadsheet.) 🔗
 
 ## ✨ [Click here to download the .exe file](https://bit.ly/wordtoexcel) ✨
 
