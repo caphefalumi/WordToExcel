@@ -4,7 +4,6 @@
 *.class
 *.o
 *.so
-*.spec
 *.zip
 *.rar
 __pycache__

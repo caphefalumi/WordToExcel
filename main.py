@@ -17,7 +17,6 @@ def questionCreate(doc, current_question, current_options, highlights, data, pla
         if text.startswith("Câu ") or text[0].isdigit() or text[0:1].isdigit():
             # Save the previous question's options and add a new question
             if current_question and current_options:
-                print(current_question)
                 current_question, current_options, highlights = process_options(current_question, current_options, highlights, selected_options, question_numbers)
                 question_numbers+=1                
                 create_quiz(data, current_question, current_options, highlights, platform)

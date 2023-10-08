@@ -1,38 +1,70 @@
-import docx
+import os, docx, shutil
 import tkinter as tk
-from PIL import Image, ImageTk
 from main import open_folder, questionCreate, dataFrame
 
+def doc_to_docx(file_path):
+    try: 
+        # Split the file path into name and extension
+        name, ext = os.path.splitext(os.path.abspath(file_path))
+        
+        if ext == ".doc":
+            # Create a new file path for the copied file with the .docx extension
+            new_file_path = name + ".docx"
+
+            # Copy the original file to the new file path
+            shutil.copyfile((os.path.abspath(file_path)), new_file_path)
+            print("File copied and renamed to", new_file_path)
+
+            # Now, open the copied .docx file
+            doc = docx.Document(new_file_path)
+        elif ext == ".docx":
+            doc = docx.Document(file_path)
+        else: 
+            return False
+        return doc, new_file_path
+    except Exception:
+        return False
 
 def run():
     file_paths = open_folder()  # Returns a tuple of selected file paths
-    if file_paths != "":
-        platform = platform_selection.get()
-        selected_options = [option for option, var in checkboxes.items() if var.get()]
-
-        # Initialize a list to collect data from all selected files
-        all_data = []
-        question_numbers = 1
-
-        for file_path in file_paths:
-            data = []
-            current_question = ""
-            current_options = []
-            highlights = []
-
-            doc = docx.Document(file_path)
-            question_numbers = questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers)
-            # Append the data to the list if not merging files
-            if "Gộp nhiều tệp thành một" not in selected_options:
-                dataFrame(data, file_path, selected_options)
-            else:
-                all_data.extend(data)  # Collect data from all selected files
-                
-        # Create a single Excel file containing the combined data if merging files
-        if "Gộp nhiều tệp thành một" in selected_options:
-            dataFrame(all_data, "Merged_File.xlsx", selected_options)
         
-        status_label.config(text = "Conversion completed successfully!")
+    if not file_paths:
+        status_label.config(text="Vui lòng chọn ít nhất một file Word", fg="red")
+        return  # Exit the function if no files are selected
+    
+    platform = platform_selection.get()
+    selected_options = [option for option, var in checkboxes.items() if var.get()]
+
+    # Initialize a list to collect data from all selected files
+    all_data = []
+    question_numbers = 1
+
+    for file_path in file_paths:
+        data = []
+        current_question = ""
+        current_options = []
+        highlights = []
+        doc_list = []
+        doc, new_file_path = doc_to_docx(file_path)
+        doc_list.append(new_file_path)
+        if doc is False:
+            status_label.config(text="Sai định dạng, vui lòng chọn file Word!", fg="red")
+            break
+        question_numbers = questionCreate(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers)
+        # Append the data to the list if not merging files
+        if "Gộp nhiều tệp thành một" not in selected_options:
+            dataFrame(data, file_path, selected_options)
+        else:
+            all_data.extend(data)  # Collect data from all selected files
+
+    # Create a single Excel file containing the combined data if merging files
+    if "Gộp nhiều tệp thành một" in selected_options:
+        dataFrame(all_data, "Merged_File.xlsx", selected_options)
+
+    if doc is not False:
+        for doc_ext in doc_list:
+            os.remove(doc_ext)
+        status_label.config(text="Thành công!", fg="green")
         window.after(2000, window.quit)
 
 # Create the main window
@@ -46,13 +78,11 @@ main_frame.pack(pady=20, padx=10)
 
 # Load the logo image
 try:
-    logo_image = Image.open(r"Images\logo.png")
-    logo_photo = ImageTk.PhotoImage(logo_image)
-    window.iconphoto(False, logo_photo)
+    p1 = tk.PhotoImage(file = 'Images\logo.png')
+    window.iconphoto(False, p1)
 except Exception:
-    logo_image = Image.open(r"logo.png")
-    logo_photo = ImageTk.PhotoImage(logo_image)
-    window.iconphoto(False, logo_photo)
+    p1 = tk.PhotoImage(file = 'logo.png')
+    window.iconphoto(False, p1)
     pass
 # Header label
 header_label = tk.Label(main_frame, text="Convert Word to Excel", font=("Helvetica", 16))
@@ -93,7 +123,7 @@ checkboxes["Sửa lỗi định dạng"].set(True)
 # Create a frame for the version label
 # Version label
 version_label = tk.Label(main_frame, text="Author: caphefalumi", fg="blue", font=("Open sans", 8))
-version_label.grid(row=5, column=2, sticky="se", padx=5, pady=10)
+version_label.grid(row=5, column=2, sticky="e", padx=5, pady=10)
 
 
 # Status label
@@ -101,4 +131,5 @@ status_label = tk.Label(main_frame, text="", fg="green")
 status_label.grid(row=5, column=0, columnspan=3, pady=10, padx=10)  # Center the label using "sticky"
 
 # Start the GUI application
+window.attributes('-topmost', True)
 window.mainloop()
