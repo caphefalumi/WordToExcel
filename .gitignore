@@ -3,6 +3,7 @@
 *.com
 *.class
 *.o
+*.spec
 *.so
 *.zip
 *.rar

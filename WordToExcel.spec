@@ -25,7 +25,7 @@ exe = EXE(
             ('vcruntime140.dll', 'C:\Windows\System32\vcruntime140.dll', 'BINARY')],
     a.zipfiles, a.datas,
     exclude_binaries=True,
-    name=os.path.join('dist', 'WordToExcel'  + ('.exe' if sys.platform == 'win32' else '')),
+    name='WordToExcel',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
