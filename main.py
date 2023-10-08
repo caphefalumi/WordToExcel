@@ -45,7 +45,7 @@ def lastQuestion(current_question, current_options, highlights, data, platform, 
 def dataFrame(data, file_path, selected_options):
     df = pd.DataFrame(data)
     if "Xáo trộn câu hỏi" in selected_options:
-            df = df.sample(frac=1)  # frac=1 shuffles all rows randomly
+        df = df.sample(frac=1)  # frac=1 shuffles all rows randomly
     # Get the file name without extension
     file_name = path.splitext(path.basename(rf'{file_path}'))[0] + ".xlsx"    
     try:
