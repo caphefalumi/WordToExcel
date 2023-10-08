@@ -6,25 +6,20 @@ from main import open_folder, questionCreate, dataFrame
 def doc_to_docx(file_path):
     try: 
         # Split the file path into name and extension
-        name, ext = os.path.splitext(os.path.abspath(file_path))
-        
+        abs_path = os.path.abspath(file_path)
+        name, ext = os.path.splitext(abs_path)
         if ext == ".doc":
             # Create a new file path for the copied file with the .docx extension
             new_file_path = name + ".docx"
-
             # Copy the original file to the new file path
-            shutil.copyfile((os.path.abspath(file_path)), new_file_path)
-            print("File copied and renamed to", new_file_path)
-
-            # Now, open the copied .docx file
-            doc = docx.Document(new_file_path)
+            shutil.copyfile(abs_path, new_file_path)
+            return new_file_path, new_file_path
         elif ext == ".docx":
-            doc = docx.Document(file_path)
+            return file_path, None
         else: 
-            return False
-        return doc, new_file_path
+            return False, None
     except Exception:
-        return False
+        return False, None
 
 def run():
     file_paths = open_folder()  # Returns a tuple of selected file paths
@@ -38,6 +33,7 @@ def run():
 
     # Initialize a list to collect data from all selected files
     all_data = []
+    doc_list = []
     question_numbers = 1
 
     for file_path in file_paths:
@@ -45,9 +41,9 @@ def run():
         current_question = ""
         current_options = []
         highlights = []
-        doc_list = []
-        doc, new_file_path = doc_to_docx(file_path)
-        doc_list.append(new_file_path)
+        path, doc_ext = doc_to_docx(file_path)
+        doc = docx.Document(path)
+        doc_list.append(doc_ext)
         if doc is False:
             status_label.config(text="Sai định dạng, vui lòng chọn file Word!", fg="red")
             break
@@ -64,7 +60,8 @@ def run():
 
     if doc is not False:
         for doc_ext in doc_list:
-            os.remove(doc_ext)
+            if doc_ext is not None:
+                os.remove(doc_ext)
         status_label.config(text="Thành công!", fg="green")
         window.after(2000, window.quit)
 
@@ -79,10 +76,10 @@ main_frame.pack(pady=20, padx=10)
 
 # Load the logo image
 try:
-    p1 = tk.PhotoImage(file = 'Images\logo.png')
+    p1 = tk.PhotoImage(file = 'logo.png')
     window.iconphoto(False, p1)
 except Exception:
-    p1 = tk.PhotoImage(file = 'logo.png')
+    p1 = tk.PhotoImage(file = 'Images\logo.png')
     window.iconphoto(False, p1)
     pass
 # Header label

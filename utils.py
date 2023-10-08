@@ -90,10 +90,9 @@ def process_options(current_question, current_options, highlights, selected_opti
     pattern = r'Câu (\d+)'
     match = re.search(pattern, current_question)
     r_match = re.search(r'^Câu (\d+)\.', current_question)  
+    current_question = current_question.replace('câu', 'Câu')
     
     if "Sửa lỗi định dạng" in selected_options:
-        # Capitalize "Câu" if it's not already capitalized
-        current_question = current_question.replace('câu', 'Câu')
         # Add a period after the number following "Câu" if it's missing
         if match and not r_match:
             # Add a period after the number
@@ -106,6 +105,7 @@ def process_options(current_question, current_options, highlights, selected_opti
         
     if "Xóa chữ 'Câu'" in selected_options:
         current_question = re.sub(r'^Câu \d+\.', '', current_question).strip().capitalize()
+        current_question = re.sub(r'\d+\.', '', current_question).strip().capitalize()
         
     if "Xóa chữ 'A,B,C,D'" in selected_options:
         current_options = [re.sub(r'[a-dA-D]\.\s*', '', option).strip().capitalize() for option in current_options]
@@ -126,5 +126,5 @@ def close_excel(file_name):
         # Closes an Excel application if it is open.
         try:
             subprocess.call("TASKKILL /F /IM EXCEL.EXE", shell=True, stdout=subprocess.DEVNULL)
-        except Exception: 
+        except subprocess.CalledProcessError: 
             pass
