@@ -37,7 +37,6 @@ Before you get started with **WordToExcel**, make sure you have the following pr
   pip install python-docx
   pip install regex
   pip install tk
-  pip install Pillow
   pip install pywin32
 
 - **Clone Repository**: Clone this repository to your local machine using the Git version control system or simply download the zip.
