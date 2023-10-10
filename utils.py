@@ -125,6 +125,6 @@ def close_excel(file_name):
     if os.path.exists(file_name):
         # Closes an Excel application if it is open.
         try:
-            subprocess.call("TASKKILL /F /IM EXCEL.EXE", shell=True, stdout=subprocess.DEVNULL)
+            subprocess.call("TASKKILL /F /IM EXCEL.EXE > nul 2>&1", shell=True, stdout=subprocess.DEVNULL)
         except subprocess.CalledProcessError: 
             pass
