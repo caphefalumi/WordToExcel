@@ -11,7 +11,6 @@ def open_folder():
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
 def is_option(paragraph):
     # Checks if a paragraph starts with an option (A., B., C., D.).
-    
     return paragraph.startswith(("A.", "B.", "C.", "D.","a.", "b.", "c.", "d."))
 
 # Helper function to split options that are on the same line
@@ -36,13 +35,14 @@ def get_correct_answer_index(options, highlights):
 
 def quizizz(data, current_question, current_options, highlights):
     # Creates a Quizizz-style question and adds it to the data list.
+    
     data.append({
         'Question Text': current_question,
         'Question Type': "Multiple Choice",
-        'Option 1': current_options[0],
-        'Option 2': current_options[1],
-        'Option 3': current_options[2],
-        'Option 4': current_options[3],
+        'Option 1': current_options[0] if len(current_options) > 0 else "",
+        'Option 2': current_options[1] if len(current_options) > 1 else "",
+        'Option 3': current_options[2] if len(current_options) > 2 else "",
+        'Option 4': current_options[3] if len(current_options) > 3 else "",
         'Correct Answer': get_correct_answer_index(current_options, highlights),
         'Time in seconds': 30,
     })
@@ -52,10 +52,10 @@ def kahoot(data, current_question, current_options, highlights):
     # Creates a Kahoot-style question and adds it to the data list.
     data.append({
         'Question': current_question,
-        'Answer 1': current_options[0],
-        'Answer 2': current_options[1],
-        'Answer 3': current_options[2],
-        'Answer 4': current_options[3],
+        'Answer 1': current_options[0] if len(current_options) > 0 else "",
+        'Answer 2': current_options[1] if len(current_options) > 1 else "",
+        'Answer 3': current_options[2] if len(current_options) > 2 else "",
+        'Answer 4': current_options[3] if len(current_options) > 3 else "",
         'Time limit': 30,
         'Correct Answer': get_correct_answer_index(current_options, highlights),
     })
@@ -65,10 +65,10 @@ def blooket(data, current_question, current_options, highlights):
     # Creates a Blooket-style question and adds it to the data list.
     data.append({
         'Question Text': current_question,
-        'Answer 1': current_options[0],
-        'Answer 2': current_options[1],
-        'Answer 3': current_options[2],
-        'Answer 4': current_options[3],
+        'Answer 1': current_options[0] if len(current_options) > 0 else "",
+        'Answer 2': current_options[1] if len(current_options) > 1 else "",
+        'Answer 3': current_options[2] if len(current_options) > 2 else "",
+        'Answer 4': current_options[3] if len(current_options) > 3 else "",
         'Time limit': 30,
         'Correct Answer': get_correct_answer_index(current_options, highlights),
     })
