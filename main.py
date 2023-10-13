@@ -14,20 +14,19 @@ def questionCreate(doc, current_question, current_options, highlights, data, pla
         # Check if the paragraph is empty
         if not text:
             continue
-
-        if text.startswith("Câu ") or text[0].isdigit() or text[0:1].isdigit():
+        if text.startswith("Câu ") or text[0].isdigit() or text[0:1].isdigit() or "Câu" in text:
             # Save the previous question's options and add a new question
-            if current_question and current_options:
+            if current_question and len(current_options) > 0:
                 current_question, current_options, highlights = process_options(current_question, current_options, highlights, selected_options, question_numbers)
-                question_numbers+=1                
+                question_numbers+=1    
                 create_quiz(data, current_question, current_options, highlights, platform)
-            current_question = text
-            current_options = []  # Clear the options list for the new question
-
+            current_question = text            
+            current_options = []  # Clear the options list for the new questions
         # Add the options
         elif is_option(text):
             # Split the options if multiple are on the same line
             for option in split_options(text):
+                print(option)
                 current_options.append(option)
 
     # Add the last question if it exists

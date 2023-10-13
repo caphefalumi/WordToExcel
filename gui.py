@@ -1,7 +1,7 @@
-import os, docx, shutil
+import os, docx, shutil, win32com.client as win32
 import tkinter as tk
 from main import open_folder, questionCreate, dataFrame
-
+from glob import glob
 
 def doc_to_docx(file_path):
     try: 
@@ -9,12 +9,21 @@ def doc_to_docx(file_path):
         abs_path = os.path.abspath(file_path)
         name, ext = os.path.splitext(abs_path)
         if ext == ".doc":
+            print(True)
             # Create a new file path for the copied file with the .docx extension
             new_file_path = name + ".docx"
             # Copy the original file to the new file path
             shutil.copyfile(abs_path, new_file_path)
             return new_file_path, new_file_path
         elif ext == ".docx":
+            word = win32.client.Dispatch("Word.Application")
+            doc = word.Documents.Open(abs_path)
+
+            for content_control in doc.ContentControls:
+                if content_control.LockContents:  # Check if it's locked
+                    content_control.LockContents = False  # Unlock it
+            doc.close(False)
+            word.Quit()
             return file_path, None
         else: 
             return False, None
@@ -61,7 +70,7 @@ def run():
     if doc is not False:
         for doc_ext in doc_list:
             if doc_ext is not None:
-                os.remove(doc_ext)
+                None #os.remove(doc_ext)
         status_label.config(text="Thành công!", fg="green")
         window.after(2000, window.quit)
 

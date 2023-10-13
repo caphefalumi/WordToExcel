@@ -1,23 +1,55 @@
-import re
-def is_option(paragraph):
-    # Checks if a paragraph starts with an option (A., B., C., D.).
-    
-    return paragraph.startswith(("A.", "B.", "C.", "D.","a.", "b.", "c.", "d."))
+import os, subprocess, re
+import time
+import win32com.client as win32
+from win32com.client import constants
 
-# Helper function to split options that are on the same line
-def split_options(text):
-    # Splits options that are on the same line into a list.
-    return re.split(r'\s+(?=[a-dA-D]\.)', text)
-data = []
-current_options = ["Anh, Pháp, Mỹ.", "B.Đức, Italia, Nhật","C.Anh, Pháp, Liên Xô"]
-data.append({
-    'Question Type': "Multiple Choice",
-    'Option 1': current_options[0] if len(current_options) > 0 else "",
-    'Option 2': current_options[1] if len(current_options) > 1 else "",
-    'Option 3': current_options[2] if len(current_options) > 2 else "",
-    'Option 4': current_options[3] if len(current_options) > 3 else "",
-    'Time in seconds': 30,
-})
+def close_word(file_name):
+    if os.path.exists(file_name):
+        # Closes an Excel application if it is open.
+        try:
+            subprocess.call("TASKKILL /F /IM WINWORD.EXE", shell=True)
+        except subprocess.CalledProcessError: 
+            pass
+abs_path = os.path.abspath(r"Docx\Dap an.docx")
+def save_as_docx(path):
+    # Opening MS Word
+    word = win32.gencache.EnsureDispatch('Word.Application')
+    doc = word.Documents.Open(path)
+    doc.Activate ()
 
-for i in data:
-    print(i)
+    # Rename path with .docx
+    abs_path = os.path.abspath(path)
+    ext = os.path.splitext(abs_path)[1]
+    if ext == ".doc":
+        new_file_abs = re.sub(r'\.\w+$', '.docx', abs_path)
+        word.ActiveDocument.SaveAs(
+            new_file_abs, FileFormat=constants.wdFormatXMLDocument
+        )
+        return new_file_abs
+    if ext == ".docx":
+        new_file_abs_1 = re.sub(r'\.\w+$', '.doc', abs_path)
+        
+        # Save as .doc
+        word.ActiveDocument.SaveAs(new_file_abs_1, FileFormat=constants.wdFormatDocument)
+        
+        # Close the document
+        doc.Close(False)
+        
+        # Reopen the saved .doc file
+        doc = word.Documents.Open(new_file_abs_1)
+        doc.Activate()
+        
+        # Rename it back to .docx
+        new_file_abs_2 = re.sub(r'\.\w+$', '1.docx', new_file_abs_1)
+        # Save as .docx
+        word.ActiveDocument.SaveAs(new_file_abs_2, FileFormat=constants.wdFormatXMLDocument)
+        os.remove(new_file_abs_1)
+        doc.Close(False)
+        return new_file_abs_2
+path = save_as_docx(abs_path)
+
+
+
+if os.path.exists(path):
+    print("SUCCESS")
+subprocess.call("TASKKILL /F /IM WINWORD.EXE", shell=True)

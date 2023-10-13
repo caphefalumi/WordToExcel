@@ -22,7 +22,7 @@ def extract_format_text(paragraph):
     # Extracts formatted text (highlighted or bold) from a paragraph.
     format_text = ""
     for run in paragraph.runs:
-        if run.font.highlight_color or run.bold:
+        if (run.font.highlight_color or run.bold):
             format_text += run.text
     return format_text
 
@@ -35,7 +35,6 @@ def get_correct_answer_index(options, highlights):
 
 def quizizz(data, current_question, current_options, highlights):
     # Creates a Quizizz-style question and adds it to the data list.
-    
     data.append({
         'Question Text': current_question,
         'Question Type': "Multiple Choice",
@@ -76,6 +75,7 @@ def blooket(data, current_question, current_options, highlights):
 
 def create_quiz(data, current_question, current_options, highlights, platform):
     # Creates a question based on the specified platform and adds it to the data list.
+    
     try:
         if platform == "Quizizz":
             quizizz(data, current_question, current_options, highlights)
@@ -89,12 +89,14 @@ def create_quiz(data, current_question, current_options, highlights, platform):
 def process_options(current_question, current_options, highlights, selected_options, question_number):
     pattern = r'Câu (\d+)'
     match = re.search(pattern, current_question)
-    r_match = re.search(r'^Câu (\d+)\.', current_question)  
+    r_match_1 = re.search(r'^Câu (\d+)\.', current_question)  
+    r_match_2 = re.search(r'^Câu (\d+)\:', current_question)  
+    r_match_3 = re.search(r'^Câu (\d+) ', current_question)  
     current_question = current_question.replace('câu', 'Câu')
     
     if "Sửa lỗi định dạng" in selected_options:
         # Add a period after the number following "Câu" if it's missing
-        if match and not r_match:
+        if match and not r_match_1 and not r_match_2:
             # Add a period after the number
             current_question = re.sub(pattern, lambda m: f'Câu {m.group(1)}.', current_question, 1)
 
