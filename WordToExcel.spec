@@ -50,3 +50,6 @@ coll = COLLECT(
     name='WordToExcel',
 )
 shutil.copyfile('Images/logo.png', '{0}/WordToExcel/logo.png'.format(DISTPATH))
+shutil.rmtree('build')
+#pyinstaller -noconfirm  --onedir --windowed --icon="C:\Users\Toan\WordToExcel\Images\logo.ico"  --upx-dir "C:\Users\Toan\upx-4.1.0-win64\" "C:\Users\Toan\WordToExcel\gui.py" -n "WordToExcel" --noconfirm
+#pyinstaller  --upx-dir "C:\Users\Toan\upx-4.1.0-win64\" "C:\Users\Toan\WordToExcel\WordToExcel.spec" --noconfirm   

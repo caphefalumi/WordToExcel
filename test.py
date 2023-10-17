@@ -3,13 +3,26 @@ import time
 import win32com.client as win32
 from win32com.client import constants
 
-def close_word(file_name):
-    if os.path.exists(file_name):
-        # Closes an Excel application if it is open.
-        try:
-            subprocess.call("TASKKILL /F /IM WINWORD.EXE", shell=True)
-        except subprocess.CalledProcessError: 
-            pass
+def delete_temp_word(file_name):
+    try:
+        # Find the PID of the Word process that has the file open
+        command = f'tasklist /FI "IMAGENAME eq WINWORD.EXE" /FI "WINDOWTITLE eq {file_name}" /FO CSV'
+        result = subprocess.check_output(command, shell=True, text=True)
+
+        lines = result.strip().split('\n')
+        # Extract the PID from the tasklist result
+        for line in lines:
+            # Split the CSV line into individual fields
+            fields = line.split(',')
+            if len(fields) >= 2:
+                process_pid = fields[1]
+
+        # Terminate the specific Word process
+        subprocess.call(f'TASKKILL /F /PID {process_pid}', shell=True)
+        os.remove(file_name)
+            
+    except subprocess.CalledProcessError:
+        pass
 abs_path = os.path.abspath(r"Docx\Dap an.docx")
 def save_as_docx(path):
     # Opening MS Word
@@ -47,7 +60,6 @@ def save_as_docx(path):
         doc.Close(False)
         return new_file_abs_2
 path = save_as_docx(abs_path)
-
 
 
 if os.path.exists(path):

@@ -1,7 +1,7 @@
 import os, docx, shutil, win32com.client as win32
 import tkinter as tk
 from main import open_folder, questionCreate, dataFrame
-from glob import glob
+
 
 def doc_to_docx(file_path):
     try: 
@@ -127,11 +127,9 @@ for i, option_text in enumerate(checkbox_options):
 # Set "Sửa lỗi định dạng" checkbox to be always checked
 checkboxes["Sửa lỗi định dạng"].set(True)
 
-# Create a frame for the version label
-# Version label
+#Create a frame for the version label
 version_label = tk.Label(main_frame, text = "Author: caphefalumi", fg = "blue", font=("Open sans", 8))
 version_label.grid(row = 5, column = 2, sticky = "e", padx = 5, pady = 10)
-
 
 # Status label
 status_label = tk.Label(main_frame, text="", fg="green")
