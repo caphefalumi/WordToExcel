@@ -20,13 +20,13 @@ def questionCreate(doc, current_question, current_options, highlights, data, pla
                 current_question, current_options, highlights = process_options(current_question, current_options, highlights, selected_options, question_numbers)
                 question_numbers+=1    
                 create_quiz(data, current_question, current_options, highlights, platform)
-            current_question = text            
+            current_question = text   
+            print(current_question)         
             current_options = []  # Clear the options list for the new questions
         # Add the options
         elif is_option(text):
             # Split the options if multiple are on the same line
             for option in split_options(text):
-                print(option)
                 current_options.append(option)
 
     # Add the last question if it exists

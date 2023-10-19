@@ -1,4 +1,5 @@
 import os, re, subprocess
+import aspose.words as aw
 from tkinter.filedialog import askopenfilenames
 
 
@@ -7,6 +8,34 @@ def open_folder():
     # Opens a file dialog to select a file and returns its path.
     filepath = askopenfilenames()
     return filepath
+#Capitalize first letter
+def CFL(text):
+    if text:
+        return text[0].upper() + text[1:]
+    else:
+        return text
+
+# Format Pragraph
+def format_paragraph(file):
+
+    # Load your DOCX or DOCM document
+    doc = aw.Document(file)
+
+    # Initialize a regular expression pattern to match list items
+    pattern = "[A-Z][A-Za-z][0-9][0-9]-[0-9]"
+
+    # Create a regular expression object
+    re = aw.system.text.regularexpressions.Regex(pattern)
+
+    # Find all paragraphs in the document
+    for paragraph in doc.get_child_nodes(aw.NodeType.PARAGRAPH, True):
+        # Check if the paragraph's text matches the pattern
+        if re.match(paragraph.get_text()):
+            # Convert the numbering format to plain text
+            paragraph.list_format.remove_numbers()
+
+    # Save the modified document
+    doc.save("document_with_plain_text_lists.docx")
 
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
 def is_option(paragraph):
@@ -22,7 +51,7 @@ def extract_format_text(paragraph):
     # Extracts formatted text (highlighted or bold) from a paragraph.
     format_text = ""
     for run in paragraph.runs:
-        if (run.font.highlight_color or run.bold):
+        if run.font.highlight_color or run.bold or run.underline or run.italic:
             format_text += run.text
     return format_text
 
@@ -62,12 +91,13 @@ def kahoot(data, current_question, current_options, highlights):
 
 def blooket(data, current_question, current_options, highlights):
     # Creates a Blooket-style question and adds it to the data list.
+    answers = {}
+    for i in range(len(current_options)):
+        answers[f'Answer {i + 1}'] = current_options[i]
+    
     data.append({
         'Question Text': current_question,
-        'Answer 1': current_options[0] if len(current_options) > 0 else "",
-        'Answer 2': current_options[1] if len(current_options) > 1 else "",
-        'Answer 3': current_options[2] if len(current_options) > 2 else "",
-        'Answer 4': current_options[3] if len(current_options) > 3 else "",
+        **answers,
         'Time limit': 30,
         'Correct Answer': get_correct_answer_index(current_options, highlights),
     })
@@ -101,17 +131,18 @@ def process_options(current_question, current_options, highlights, selected_opti
             current_question = re.sub(pattern, lambda m: f'Câu {m.group(1)}.', current_question, 1)
 
         # Capitalize the text after "Câu X."
-        current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {match.group(2).capitalize()}', current_question)
-        current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1).capitalize()}. {match.group(2).strip().capitalize()}', option) for option in current_options]
-        highlights = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{match.group(1).capitalize()}. {match.group(2).strip().capitalize()}', highlight) for highlight in highlights]
+        current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {CFL(match.group(2))}', current_question)
+        current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{CFL(match.group(1))}. {CFL(match.group(2).strip())}', option) for option in current_options]
+        highlights = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{CFL(match.group(1))}. {CFL(match.group(2).strip())}', highlight) for highlight in highlights]
         
     if "Xóa chữ 'Câu'" in selected_options:
-        current_question = re.sub(r'^Câu \d+\.', '', current_question).strip().capitalize()
-        current_question = re.sub(r'\d+\.', '', current_question).strip().capitalize()
+        current_question = CFL(re.sub(r'^Câu \d+\.', '', current_question).strip())
+        current_question = CFL(re.sub(r'^Câu \d+\:', '', current_question).strip())
+        current_question = CFL(re.sub(r'\d+\.', '', current_question).strip())
         
     if "Xóa chữ 'A,B,C,D'" in selected_options:
-        current_options = [re.sub(r'[a-dA-D]\.\s*', '', option).strip().capitalize() for option in current_options]
-        highlights = [re.sub(r'[a-dA-D]\.\s*', '', highlight).strip().capitalize() for highlight in highlights]
+        current_options = [CFL(re.sub(r'[a-dA-D]\.\s*', '', option).strip()) for option in current_options]
+        highlights = [CFL(re.sub(r'[a-dA-D]\.\s*', '', highlight).strip()) for highlight in highlights]
         
     if "Thêm chữ 'Câu'" in selected_options and not "Câu" in current_question:
         current_question = re.sub(r"(\d+)", r'Câu \1', current_question, 1)
@@ -121,6 +152,7 @@ def process_options(current_question, current_options, highlights, selected_opti
             current_question = re.sub(pattern, f"Câu {question_number}", current_question)
 
     return current_question, current_options, highlights
+
 
 
 def close_excel(file_name):

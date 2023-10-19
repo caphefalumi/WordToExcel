@@ -16,14 +16,14 @@ def doc_to_docx(file_path):
             shutil.copyfile(abs_path, new_file_path)
             return new_file_path, new_file_path
         elif ext == ".docx":
-            word = win32.client.Dispatch("Word.Application")
+            """word = win32.client.Dispatch("Word.Application")
             doc = word.Documents.Open(abs_path)
 
             for content_control in doc.ContentControls:
                 if content_control.LockContents:  # Check if it's locked
                     content_control.LockContents = False  # Unlock it
             doc.close(False)
-            word.Quit()
+            word.Quit()"""
             return file_path, None
         else: 
             return False, None
