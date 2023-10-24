@@ -1,4 +1,5 @@
-import os, re, subprocess
+import os, re, subprocess, docx, pypandoc
+
 import aspose.words as aw
 from tkinter.filedialog import askopenfilenames
 
@@ -17,35 +18,29 @@ def CFL(text):
 
 # Format Pragraph
 def format_paragraph(file):
-
-    # Load your DOCX or DOCM document
-    doc = aw.Document(file)
-
-    # Initialize a regular expression pattern to match list items
-    pattern = "[A-Z][A-Za-z][0-9][0-9]-[0-9]"
-
-    # Create a regular expression object
-    re = aw.system.text.regularexpressions.Regex(pattern)
-
-    # Find all paragraphs in the document
-    for paragraph in doc.get_child_nodes(aw.NodeType.PARAGRAPH, True):
-        # Check if the paragraph's text matches the pattern
-        if re.match(paragraph.get_text()):
-            # Convert the numbering format to plain text
-            paragraph.list_format.remove_numbers()
-
-    # Save the modified document
-    doc.save("document_with_plain_text_lists.docx")
-
+    # Load the DOCX document
+    doc = rf"{file}"
+    output = pypandoc.convert_file(doc, 'plain', format='docx', outputfile='temp.txt', extra_args=['--from=docx', '--to=plain', '--output=plain', '--standalone', '--preserve-tabs', '--toc'])
+    document = docx.Document()
+    myfile = open('temp.txt', 'r', encoding='utf-8').read()
+    p = document.add_paragraph(myfile)
+    document.save('temp.docx')
+    os.remove('temp.txt')
+    
+# Helper function to check whether a text is a question
+def is_question(text):
+    if text.startswith("Câu ") or text.startswith("Câu") or re.match(r"(\d+)\.", text):
+        return True
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
-def is_option(paragraph):
-    # Checks if a paragraph starts with an option (A., B., C., D.).
-    return paragraph.startswith(("A.", "B.", "C.", "D.","a.", "b.", "c.", "d."))
+def is_option(text):
+    if text.startswith(("A.", "B.", "C.", "D.", "a.", "b.", "c.", "d.")) or not is_question(text):
+        return True
 
 # Helper function to split options that are on the same line
 def split_options(text):
     # Splits options that are on the same line into a list.
-    return re.split(r'\s+(?=[a-dA-D]\.)', text)
+    if is_option(text):
+        return re.split(r'\s+(?=[a-dA-D]\.)', text)
 
 def extract_format_text(paragraph):
     # Extracts formatted text (highlighted or bold) from a paragraph.
@@ -148,8 +143,7 @@ def process_options(current_question, current_options, highlights, selected_opti
         current_question = re.sub(r"(\d+)", r'Câu \1', current_question, 1)
         
     if match:
-        if "Gộp nhiều tệp thành một" in selected_options:
-            current_question = re.sub(pattern, f"Câu {question_number}", current_question)
+        current_question = re.sub(pattern, f"Câu {question_number}", current_question)
 
     return current_question, current_options, highlights
 
