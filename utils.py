@@ -1,36 +1,26 @@
-import os, re, subprocess, docx, pypandoc
-
-import aspose.words as aw
+import os
+import re
+import subprocess
 from tkinter.filedialog import askopenfilenames
-
 
 # Helper function to open a window that specifies a file's path
 def open_folder():
     # Opens a file dialog to select a file and returns its path.
     filepath = askopenfilenames()
     return filepath
-#Capitalize first letter
+
+# Capitalize first letter
 def CFL(text):
     if text:
         return text[0].upper() + text[1:]
     else:
         return text
 
-# Format Pragraph
-def format_paragraph(file):
-    # Load the DOCX document
-    doc = rf"{file}"
-    output = pypandoc.convert_file(doc, 'plain', format='docx', outputfile='temp.txt', extra_args=['--from=docx', '--to=plain', '--output=plain', '--standalone', '--preserve-tabs', '--toc'])
-    document = docx.Document()
-    myfile = open('temp.txt', 'r', encoding='utf-8').read()
-    p = document.add_paragraph(myfile)
-    document.save('temp.docx')
-    os.remove('temp.txt')
-    
 # Helper function to check whether a text is a question
 def is_question(text):
     if text.startswith("Câu ") or text.startswith("Câu") or re.match(r"(\d+)\.", text):
         return True
+
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
 def is_option(text):
     if text.startswith(("A.", "B.", "C.", "D.", "a.", "b.", "c.", "d.")) or not is_question(text):
@@ -89,7 +79,7 @@ def blooket(data, current_question, current_options, highlights):
     answers = {}
     for i in range(len(current_options)):
         answers[f'Answer {i + 1}'] = current_options[i]
-    
+
     data.append({
         'Question Text': current_question,
         **answers,
@@ -100,7 +90,7 @@ def blooket(data, current_question, current_options, highlights):
 
 def create_quiz(data, current_question, current_options, highlights, platform):
     # Creates a question based on the specified platform and adds it to the data list.
-    
+
     try:
         if platform == "Quizizz":
             quizizz(data, current_question, current_options, highlights)
@@ -114,12 +104,12 @@ def create_quiz(data, current_question, current_options, highlights, platform):
 def process_options(current_question, current_options, highlights, selected_options, question_number):
     pattern = r'Câu (\d+)'
     match = re.search(pattern, current_question)
-    r_match_1 = re.search(r'^Câu (\d+)\.', current_question)  
-    r_match_2 = re.search(r'^Câu (\d+)\:', current_question)  
-    r_match_3 = re.search(r'^Câu (\d+) ', current_question)  
+    r_match_1 = re.search(r'^Câu (\d+)\.', current_question)
+    r_match_2 = re.search(r'^Câu (\d+)\:', current_question)
+    r_match_3 = re.search(r'^Câu (\d+) ', current_question)
     current_question = current_question.replace('câu', 'Câu')
-    
-    if "Sửa lỗi định dạng" in selected_options:
+
+    if "Fix format errors" in selected_options:
         # Add a period after the number following "Câu" if it's missing
         if match and not r_match_1 and not r_match_2:
             # Add a period after the number
@@ -129,30 +119,28 @@ def process_options(current_question, current_options, highlights, selected_opti
         current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {CFL(match.group(2))}', current_question)
         current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{CFL(match.group(1))}. {CFL(match.group(2).strip())}', option) for option in current_options]
         highlights = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{CFL(match.group(1))}. {CFL(match.group(2).strip())}', highlight) for highlight in highlights]
-        
-    if "Xóa chữ 'Câu'" in selected_options:
+
+    if "Remove 'Câu'" in selected_options:
         current_question = CFL(re.sub(r'^Câu \d+\.', '', current_question).strip())
         current_question = CFL(re.sub(r'^Câu \d+\:', '', current_question).strip())
         current_question = CFL(re.sub(r'\d+\.', '', current_question).strip())
-        
-    if "Xóa chữ 'A,B,C,D'" in selected_options:
+
+    if "Remove 'A,B,C,D'" in selected_options:
         current_options = [CFL(re.sub(r'[a-dA-D]\.\s*', '', option).strip()) for option in current_options]
         highlights = [CFL(re.sub(r'[a-dA-D]\.\s*', '', highlight).strip()) for highlight in highlights]
-        
-    if "Thêm chữ 'Câu'" in selected_options and not "Câu" in current_question:
+
+    if "Add 'Câu'" in selected_options and not "Câu" in current_question:
         current_question = re.sub(r"(\d+)", r'Câu \1', current_question, 1)
-        
+
     if match:
         current_question = re.sub(pattern, f"Câu {question_number}", current_question)
 
     return current_question, current_options, highlights
-
-
 
 def close_excel(file_name):
     if os.path.exists(file_name):
         # Closes an Excel application if it is open.
         try:
             subprocess.call("TASKKILL /F /IM EXCEL.EXE > nul 2>&1", shell=True, stdout=subprocess.DEVNULL)
-        except subprocess.CalledProcessError: 
+        except subprocess.CalledProcessError:
             pass
