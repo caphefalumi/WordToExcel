@@ -1,12 +1,10 @@
-from docx import Document
-from lxml import etree
+import docx
+import re
 
-def extract_format_text(paragraph):
-    # Extracts formatted text (highlighted or bold) from a paragraph.
-    format_text = ""
-    for run in paragraph.runs:
-        print(run.text)
-    return format_text
-doc = Document(r"Docx\ĐC _ SINH 12.docx")
+doc = docx.Document(r"C:\Users\Toan\WordToExcel\Docx\Dap an.docx")
+count = 0
 for paragraph in doc.paragraphs:
-    extract_format_text(paragraph)
+    text = paragraph.text.strip()
+    text = re.sub("\x0B", "\x0A", text)
+    count +=1
+    print(text, count)

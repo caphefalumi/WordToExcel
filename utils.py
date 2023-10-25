@@ -1,6 +1,8 @@
 import os
 import re
+import psutil
 import subprocess
+
 from tkinter.filedialog import askopenfilenames
 
 # Helper function to open a window that specifies a file's path
@@ -23,7 +25,7 @@ def is_question(text):
 
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
 def is_option(text):
-    if text.startswith(("A.", "B.", "C.", "D.", "a.", "b.", "c.", "d.")) or not is_question(text):
+    if text.startswith(("A.", "B.", "C.", "D.", "a.", "b.", "c.", "d.")):
         return True
 
 # Helper function to split options that are on the same line
@@ -136,6 +138,26 @@ def process_options(current_question, current_options, highlights, selected_opti
         current_question = re.sub(pattern, f"Câu {question_number}", current_question)
 
     return current_question, current_options, highlights
+
+def is_explorer_window_open(file_name):
+    explorer_process_name = "explorer.exe"
+    
+    # Iterate over running processes and check if any have the same file open
+    for process in psutil.process_iter(attrs=['name']):
+        if process.info['name'] == explorer_process_name:
+            try:
+                process_files = process.open_files()
+                for file in process_files:
+                    if file.path == file_name:
+                        return True
+            except (psutil.AccessDenied, psutil.NoSuchProcess):
+                pass
+
+    return False
+
+def open_file_explorer(file_name):
+    if not is_explorer_window_open(file_name):
+        subprocess.Popen(f'explorer /select,"{file_name}"')
 
 def close_excel(file_name):
     if os.path.exists(file_name):

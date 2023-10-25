@@ -13,51 +13,47 @@ def doc_to_docx(file_path, del_list):
         # Load the DOCX document
         pypandoc.convert_file(file_path_convert, 'plain', outputfile=f'{temp_name}.txt')
         document = docx.Document()
-        myfile = open(f'{temp_name}.txt', 'r', encoding='utf-8').read()
-        document.add_paragraph(myfile)
+        
+        # Read the text from the file and replace soft returns with paragraph marks
+        with open(f'{temp_name}.txt', 'r', encoding='utf-8') as file:
+            text = file.readlines()
+        for line in text:
+            document.add_paragraph(line)
         document.save(f'{temp_name}.docx')
         os.remove(f'{temp_name}.txt')
         del_list.append(os.path.abspath(f'{temp_name}.docx'))
         return del_list
-
-    try: 
-        # Split the file path into name and extension
-        name, ext = os.path.splitext(file_path)
-        
-        if ext == ".doc":
-            # Opening MS Word
-            word = win32.gencache.EnsureDispatch('Word.Application')
-            doc = word.Documents.Open(file_path)
-            doc.Activate ()
-            
-            # Rename path with .docx
-            new_file_abs = f"wteTemp{name}.docx"
-            
-            # Save and Close
-            word.ActiveDocument.SaveAs(new_file_abs, FileFormat=constants.wdFormatXMLDocument)
-            doc.Close(False)
-            
-            new_file_abs, del_list = convert_to_docx(new_file_abs, name, del_list)
-            return new_file_abs, del_list
-        elif ext == ".docx":
-            new_file_path, del_list = convert_to_docx(file_path, name, del_list)
-            return new_file_path, del_list
-        else: 
-            return False, None
-    except Exception:
-        return False, None
+    document = docx.Document(file_path)
+    for paragraph in document.paragraphs:
+        highlighted_text = extract_format_text(paragraph)
+    # Split the file path into name and extension
+    name, ext = os.path.splitext(os.path.basename(file_path))
+    # Rename path with .docx
+    new_file_abs = f"wteTemp{name}.docx"
+    if ext == ".doc":
+        # Opening MS Word
+        word = win32.gencache.EnsureDispatch('Word.Application')
+        doc = word.Documents.Open(file_path)
+        doc.Activate()
+        # Save and Close
+        word.ActiveDocument.SaveAs(new_file_abs, FileFormat=constants.wdFormatXMLDocument)
+        doc.Close(False)
+        del_list = convert_to_docx(file_path, name, del_list)
+    elif ext == ".docx":
+        del_list = convert_to_docx(file_path, name, del_list)
+    else: 
+        return False, del_list
+    return new_file_abs, del_list
 
 def question_create(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers):
     for paragraph in doc.paragraphs:
-        highlighted_text = extract_format_text(paragraph)
-        highlights.append(highlighted_text)
         text = paragraph.text.strip()
-        
         # Check if the paragraph is empty
         if not text:
             continue
         
         if is_question(text):
+            print(text, 1)
             if current_question and len(current_options) > 0:
                 current_question, current_options, highlights = process_options(current_question, current_options, highlights, selected_options, question_numbers)
                 question_numbers += 1
@@ -65,6 +61,8 @@ def question_create(doc, current_question, current_options, highlights, data, pl
             current_question = text
             current_options = []  # Clear the options list for the new questions
         elif is_option(text):
+            highlighted_text = extract_format_text(paragraph)
+            highlights.append(highlighted_text)
             for option in split_options(text):
                 current_options.append(option)
 

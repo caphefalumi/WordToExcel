@@ -17,7 +17,7 @@ def run():
 
     # Initialize data collection
     all_data = []
-    doc_list = []
+    del_list = []
     question_numbers = 1
 
     for file_path in file_paths:
@@ -27,9 +27,8 @@ def run():
         highlights = []
 
         # Convert .doc to .docx if needed
-        path, doc_ext = doc_to_docx(file_path)
+        path, del_list = doc_to_docx(file_path, del_list)
         doc = docx.Document(path)
-        doc_list.append(doc_ext)
 
         if doc is False:
             status_label.config(text="Invalid format, please select a Word document!", fg="red")
@@ -45,9 +44,8 @@ def run():
     if "Merge multiple files into one" in selected_options:
         data_frame(all_data, "Merged_File.xlsx", selected_options)
 
-    for doc_ext in doc_list:
-        if doc_ext is not None:
-            os.remove(doc_ext)
+    for temp_file in del_list:
+        os.remove(temp_file)
 
     status_label.config(text="Success!", fg="green")
     window.after(2000, window.quit)
