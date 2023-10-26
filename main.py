@@ -11,7 +11,7 @@ def doc_to_docx(file_path, del_list):
     def convert_to_docx(file_path_convert, name, del_list):
         temp_name = f'wteTemp{name}'
         # Load the DOCX document
-        pypandoc.convert_file(file_path_convert, 'plain', outputfile=f'{temp_name}.txt')
+        pypandoc.convert_file(file_path_convert, 'plain', extra_args=['--wrap=none'], outputfile=f'{temp_name}.txt')
         document = docx.Document()
         
         # Read the text from the file and replace soft returns with paragraph marks
@@ -20,7 +20,7 @@ def doc_to_docx(file_path, del_list):
         for line in text:
             document.add_paragraph(line)
         document.save(f'{temp_name}.docx')
-        os.remove(f'{temp_name}.txt')
+        #os.remove(f'{temp_name}.txt')
         del_list.append(os.path.abspath(f'{temp_name}.docx'))
         return del_list
     def extract_original_format(file_path):
@@ -60,7 +60,7 @@ def question_create(doc, current_question, current_options, highlights, data, pl
         
         if is_question(text):
             if current_question and len(current_options) > 0:
-                current_question, current_options, highlights = process_options(current_question, current_options, highlights, selected_options, question_numbers)
+                current_question, current_options = process_options(current_question, current_options, selected_options, question_numbers)
                 question_numbers += 1
                 create_quiz(data, current_question, current_options, highlights, platform)
             current_question = text
@@ -75,7 +75,8 @@ def question_create(doc, current_question, current_options, highlights, data, pl
 def last_question(current_question, current_options, highlights, data, platform, selected_options, question_numbers):
     if current_question and current_options:
         question_numbers += 1
-        current_question, current_options, highlights = process_options(current_question, current_options, highlights, selected_options, question_numbers)
+        current_question, current_options = process_options(current_question, current_options, selected_options, question_numbers)
+
         create_quiz(data, current_question, current_options, highlights, platform)
     return question_numbers
 

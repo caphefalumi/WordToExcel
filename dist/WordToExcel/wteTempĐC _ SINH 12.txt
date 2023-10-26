@@ -1,0 +1,1059 @@
+TÀI LIỆU HƯỚNG DẪN ÔN TẬP GIỮA KỲ I _ 2023 – 2024
+
+SINH HỌC 12
+
+1.  CƠ CHẾ DI TRUYỀN
+
+Nhận biết
+
+1.  Gen là một đoạn của phân tử ADN
+
+A.  Alo
+
+B.  Ok
+
+C.  Kkk
+
+D.  Okkkkk
+
+2.  Mã di truyền có tính đặc hiệu, có nghĩa là:
+
+A. Mã mở đầu là AUG, mã kết thúc là UAA, UAG, UGA.
+
+B. Nhiều bộ ba cùng xác định một axit amin.
+
+C. Một bộ ba mã hoá chỉ mã hoá cho một loại axit amin.
+
+D. Tất cả các loài đều dùng chung một bộ mã di truyền.
+
+3.  Mỗi bộ ba mã hóa cho 1 axitamin, đây là đặc điểm nào của mã di truyền?
+
+A. Tính liên tục.
+
+B. Tính thoái hoá.
+
+C. Tính đặc hiệu.
+
+D.Tính phổ biến.
+
+4.  Mã di truyền có tính thoái hóa, tức là
+
+A. nhiều bộ ba cùng xác định một axit amin.
+
+B. tất cả các loài đều dùng chung một bộ mã di truyền.
+
+C. mã kết thúc là UAA, UAG, UGA.
+
+D. một bộ ba mã hoá chỉ mã hoá cho một loại axit.
+
+5.  Các mạch đơn mới được tổng hợp trong quá trình nhân đôi của phân tử ADN hình thành theo chiều
+
+A. cùng chiều tháo xoắn của ADN.
+
+B. 3' đến 5'.
+
+C. 5' đến 3'.
+
+D. cùng chiều với mạch khuôn.
+
+6.  Quá trình tổng hợp ARN dựa vào khuôn mẫu của ADN được gọi là:
+
+A. Quá trình giải mã.
+
+B. Quá trình dịch mã.
+
+C. Quá trình tái bản.
+
+D. Quá trình phiên mã.
+
+7.  Loại enzim nào sau đây tham gia vào quá trình phiên mã?
+
+A. ADN pôlimeraza.
+
+B. Ligaza.
+
+C. ARN pôlimeraza
+
+D. Restrictaza.
+
+8.  Kết quả của giai đoạn dịch mã là:
+
+A. Phân tử mARN mới.
+
+B. Chuỗi pôlipeptit mới.
+
+C. Phân tử ADN mới.
+
+D. NST.
+
+Thông hiểu
+
+9.  Một đoạn gen có trình tự nuclêôtit là 3’AGXTTAGXA5’. Trình tự các nuclêôtit trên mạch bổ sung của đoạn Gen trên là:
+
+A. 3’TXGAATXGT5’.
+
+B. 5’AGXTTAGXA3’.
+
+C. 5’TXGAATXGT3’.
+
+D. 5’UXGAAUXGU3’.
+
+10. Mạch thứ nhất của gen có trình tự nuclêôtít là 3’AAAXXAGGGTGX 5’. Tỉ lệ[BÀI TẬP LÝ THUYẾT VỀ GEN VÀ MÃ DI TRUYỀN]ở mạch thứ 2 của gen là
+
+A. 14.
+
+B. 1.
+
+C. 1/2.
+
+D. 2.
+
+11. Trên một mạch của gen có tỉ lệ A:T:X:G = 4:2:2:1. Tỉ lệ (A+T)/(X+G) của gen là
+
+A. 3.
+
+B. 2.
+
+C. 4.
+
+D. 1.
+
+12. Phân tử mARN có tỉ lệ loại nuclêôtit như sau A: G: X = 3:1:4. Tính theo lí thuyết tỉ lệ bộ ba có chứa 2 nuclêôtit loại A là:
+
+A. 26,37%.
+
+B. 27,36%.
+
+C. 8,79%.
+
+D. 7,98%.
+
+13. Trên một mạch của một gen có 20%T, 22%X, 28%A. Tỉ lệ mỗi loại nuclêôtit của gen là:
+
+A. A=T=24%, G=X=26%.
+
+B. A=T=24%, G=X=76%.
+
+C. A=T=48%, G=X=52%.
+
+D. A=T=42%, G=X=58%.
+
+14. Trong quá trình nhân đôi ADN ở sinh vật nhân sơ, thứ tự tác động của các enzym là:
+
+A. Gyraza → ADN polimeraza → ligaza → ARN polimeraza.
+
+B. Gyraza → ARN polimeraza → ADN polimeraza → ligaza.
+
+C. Gyraza → ADN polimeraza → ARN polimeraza → ligaza.
+
+D. Gyraza → ligaza → ARN polimeraza → ADN polimeraza.
+
+15. Đặc điểm nào sau đây là sự khác biệt giữa quá trình nhân đôi và quá trình phiên mã của ADN?
+
+A. Xảy ra trong nhân tế bào.
+
+B. Mạch polinucleotit được tổng hợp kéo dài theo chiều từ 5’ → 3’.
+
+C. Sử dụng nuclêôtit Uracin (U) trong quá trình tổng hợp.
+
+D. Xảy ra trên cả 2 mạch của cùng một đoạn gen.
+
+16. Phát biểu nào sau đây là đúng ?
+
+A. Một bộ ba mã di truyền có thể mã hóa cho một hoặc một số axit amin.
+
+B. Sinh vật nhân thực, axit amin mở đầu chuỗi polipeptit sẽ được tổng hợp là mêtiônin.
+
+C. Trong cùng một thời điểm chỉ có một ribôxôm tham gia dịch mã trên một phân tử mARN.
+
+D. Khi dịch mã, ribôxôm chuyển dịch theo chiều 3'→5' trên phân tử mARN.
+
+17. Cơ chế di truyền nào sau đây không sử dụng nguyên tắc bổ sung?
+
+A. Nhân đôi ADN.
+
+B. Phiên mã.
+
+C. Hoàn thiện mARN.
+
+D. Dịch mã.
+
+18. Điểm giống nhau giữa quá trình phiên mã và dịch mã ở sinh vật nhân thực là:
+
+A. Đều diễn ra trong nhân tế bào.
+
+B. Đều diễn ra theo nguyên tắc bổ sung.
+
+C. Đều có sự tham gia của ARN polimeraza.
+
+D. Đều diễn ra đồng thời với quá trình nhân đôi ADN.
+
+Vận dụng
+
+Giải thích được cơ sở khoa học của việc những dụng các cơ chế di truyền vào thực tiễn. Rút ra được ý nghĩa của những ứng dụng đó trong thực tiễn.
+
+Vận dụng cao
+
+Đưa ra lời khuyên về việc ứng dụng các cơ chế di truyền trong tình huống thực tiễn.
+
+2.  ĐIỀU HÒA HOẠT ĐỘNG CỦA GEN
+
+Nhận biết
+
+19. Điều hòa hoạt động gen chính là
+
+A. điều hòa lượng sản phẩm do gen tạo ra.
+
+B. điều hòa lượng mARN do gen tạo ra.
+
+C. điều hòa lượng axit amin do gen tạo ra.
+
+D. điều hòa lượng cơ chất do gen tạo ra.
+
+20. Sự biểu hiện điều hòa hoạt động của gen ở sinh vật nhân sơ diễn ra chủ yếu ở cấp độ:
+
+A. Phiên mã.
+
+B. Sau phiên mã.
+
+C. Trước phiên mã.
+
+D. Dịch mã.
+
+21. Theo Jacob và Mono, các thành phần cấu tạo của opêron Lac gồm:
+
+A. Gen điều hoà, nhóm gen cấu trúc, vùng khởi động (P).
+
+B. Vùng vận hành (O), nhóm gen cấu trúc, vùng khởi động (P).
+
+C. Gen điều hoà, nhóm gen cấu trúc, vùng vận hành (O).
+
+D. Gen điều hoà, nhóm gen cấu trúc, vùng vận hành (O), vùng khởi động (P).
+
+22. Trên sơ đồ cấu tạo của opêron Lac ở E. coli, kí hiệu O (operator) là:
+
+A. Vùng khởi động.
+
+B. Vùng kết thúc.
+
+C. Vùng mã hoá.
+
+D. Vùng vận hành.
+
+Thông hiểu
+
+23. Trong cơ chế điều hòa hoạt động của Operon Lac thì enzyme ARN polimeraza phiên mã ở loại gen nào nhiều nhất
+
+A. Gen điều hòa.
+
+B. Gen A.
+
+C. Gen Y.
+
+D. Gen Z.
+
+24. Tín hiệu điều hòa hoạt động gen của opêron Lac ở vi khuẩn E.coli là:
+
+A. Prôtêin ức chế.
+
+B. Đường lactozơ.
+
+C. Enzim ADN-polimeraza.
+
+D. Đường mantôzơ.
+
+25. Trong cơ chế điều hòa hoạt động của opêron Lac ở E.coli, lactôzơ đóng vai trò của chất
+
+A. xúc tác.
+
+B. ức chế.
+
+C. cảm ứng.
+
+D. trung gian.
+
+26. Theo mô hình operon Lac, vì sao prôtêin ức chế bị mất tác dụng?
+
+A. Vì lactôzơ làm mất cấu hình không gian của nó.
+
+B. Vì prôtêin ức chế bị phân hủy khi có lactôzơ.
+
+C. Vì lactôzơ làm gen điều hòa không hoạt động.
+
+D. Vì gen cấu trúc làm gen điều hoà bị bất hoạt.
+
+3.  ĐỘT BIẾN GEN
+
+Nhận biết
+
+27. Đột biến gen là
+
+A. những biến đổi trong cấu trúc của gen có liên quan đến một hoặc một số cặp nucleotit.
+
+B. những biến đổi trong cấu trúc của ADN có liên quan đến một hoặc một số cặp nucleotit.
+
+C. những biến đổi trong cấu trúc của gen có liên quan đến một hoặc một số nucleotit.
+
+D. những biến đổi trong cấu trúc của ADN có liên quan đến một hoặc một số nucleotit.
+
+28. Các loại đột biến điểm bao gồm:
+
+A. 2 loại: thêm và mất một hoặc một số cặp Nu.
+
+B. 2 loại: mất và thay thế một hoặc một số cặp Nu.
+
+C. 3 loại: thêm, mất và thay thế một hoặc một số cặp Nu.
+
+D. 3 loại: thêm, mất và đảo vị trí một hoặc một số cặp Nu.
+
+29. Đột biến gen thường xảy ra khi
+
+A. NST đóng xoắn.
+
+B. dịch mã.
+
+C. ADN nhân đôi.
+
+D. phiên mã.
+
+30. Ở Người, đột biến gây biến đổi tế bào hồng cầu bình thường thành tế bào hồng cầu lưỡi liềm là dạng đột biến
+
+A. lặp đoạn NST.
+
+B. mất hoặc thêm một cặp nucleotit.
+
+C. mất đoạn NST.
+
+D. thay thế một cặp nucleotit.
+
+Thông hiểu
+
+31. Tại sao đột biến gen có tần số thấp nhưng lại thường xuyên xuất hiện trong quần thể giao phối?
+
+A. Vì vốn gen trong quần thể rất lớn
+
+B. Vì gen có cấu trúc kém bền vững.
+
+C. Vì tác nhân gây đột biến rất nhiều.
+
+D. Vì hiện tượng trao đổi chéo NST.
+
+32. Đột biến ở vị trí nào trong gen làm cho quá trình dịch mã không thực hiện được?
+
+A. Đột biến ở mã mở đầu.
+
+B. Đột biến ở bộ ba ở giữa gen.
+
+C. Đột biến ở mã kết thúc.
+
+D. Đột biến ở bộ ba giáp mã kết thúc.
+
+33. Khi nói về đột biến gen, kết luận nào sau đây sai?
+
+A. Đột biến gen được gọi là biến dị di truyền vì tất cả các đột biến gen đều được di truyền cho đời sau:
+
+B. Trong điều kiện không có tác nhân đột biến thì vẫn có thể phát sinh đột biến gen
+
+C. Tần số đột biến gen phụ thuộc vào cường độ, liều lượng của tác nhân gây đột biến và đặc điểm cấu trúc của gen
+
+D. Trong trường hợp một gen quy định một tính trạng, cơ thể mang đột biến gen trội luôn được gọi là thể đột biến.
+
+4.  NHIỄM SẮC THỂ VÀ ĐỘT BIẾN CẤU TRÚC NST
+
+Nhận biết
+
+34. NST ở sinh vật nhân thực có bản chất là gì?
+
+A. ADN.
+
+B. Prôtêin.
+
+C. Lipit.
+
+D. ARN.
+
+35. Ở sinh vật nhân thực, nhiễm sắc thể được cấu trúc bởi 2 thành phần chủ yếu là:
+
+A. ADN và 8 protein histon.
+
+B. ADN và 6 protein histon.
+
+C. ADN và 4 protein histon.
+
+D. ADN và 2 protein histon.
+
+36. Dạng đột biến cấu trúc nhiễm sắc thể nào sau đây làm tăng số lượng gen trên một nhiễm sắc thể, tạo điều kiện cho đột biến gen, tạo nên gen mới cung cấp nguyên liệu cho quá trình tiến hoá?
+
+A. Đảo đoạn.
+
+B. Chuyển đoạn.
+
+C. Mất đoạn.
+
+D. Lặp đoạn.
+
+37. Bệnh nào sau đây ở người đo đột biến NST gây nên?
+
+A. Ung thư máu ác tính.
+
+B. Máu khó đông.
+
+C. Mù màu.
+
+D. Bạch tạng.
+
+Thông hiểu
+
+38. Có bao nhiêu phát biểu sau đây đúng với đột biến đảo đoạn nhiễm sắc thể?
+
+1. Làm thay đổi trình tự phân bố gen trên nhiễm sắc thể.
+
+2. Làm giảm hoặc tăng số lượng gen trên nhiễm sắc thể.
+
+3. Làm thay đổi thành phần gen trong nhóm gen liên kết.
+
+4. Có thể làm giảm khả năng sinh sản của thể đột biến.
+
+5. Có thể làm gen trên nhiễm sắc thể hoạt động mạnh lên.
+
+A. 4.
+
+B. 2.
+
+C. 5.
+
+D. 3.
+
+39. Loại đột biến nào sau đây thường không làm thay đổi số lượng và thành phần gen trên một NST?
+
+A. Đảo đoạn NST.
+
+B. Mất đoạn NST.
+
+C. Lặp đoạn NST.
+
+D. Chuyển đoạn giữa hai NST khác nhau.
+
+40. Sự trao đổi chéo không cân giữa các cromatit trong một cặp NST kép tương đồng là nguyên nhân dẫn đến:
+
+A. Đột biến chuyển đoạn và lặp đoạn.
+
+B. Đột biến chuyển đoạn và mất đoạn.
+
+C. Đột biến lặp đoạn và mất đoạn.
+
+D. Đột biến đảo đoạn và lặp đoạn.
+
+41. Quan sát hình vẽ sau:
+
+[NHIỄM SẮC THỂ VÀ ĐỘT BIẾN CẤU TRÚC NST]
+
+Biết các chữ các in hoa kí hiệu cho các gen trên nhiễm sắc thể. Nhận định nào dưới đây đúng khi nói về dạng đột biến cấc trúc nhiễm sắc thể của hình trên ?
+
+A. Hình vẽ mô tả dạng đột biến mất đoạn nhiễm sắc thể.
+
+B. Hình vẽ mô tả dạng đột biến đảo đoạn nhiễm sắc thể.
+
+C. Hình vẽ mô tả dạng đột biến thêm đoạn nhiễm sắc thể.
+
+D. Hình vẽ mô tả dạng đột biến lặp đoạn nhiễm sắc thể.
+
+5.  ĐỘT BIẾN SỐ LƯỢNG NHIỄM SẮC THỂ
+
+Nhận biết
+
+42. Trong tế bào của thể ba nhiễm có hiện tượng nào sau đây?
+
+A. Thừa 1 NST ở hai cặp nào đó.
+
+B. Mỗi cặp NST đều có 3 chiếc.
+
+C. Thừa 1 NST ở một cặp nào đó.
+
+D. Thiếu 1 NST ở tất cả các cặp.
+
+43. Thể một nhiễm có bộ nhiễm sắc thể thuộc dạng:
+
+A. 2n – 1.
+
+B. n + 1.
+
+C. 2n + 1.
+
+D. n – 1.
+
+44. Nội dung nào sau đây đúng về thể lệch bội?
+
+A. Thay đổi số lượng nhiễm sắc ở một hay một số cặp nhiễm sắc thể tương đồng.
+
+B. Thay đổi cấu trúc nhiễm sắc thể ở nhiều cặp nhiễm sắc thể tương đồng.
+
+C. Thay đổi số lượng nhiễm sắc ở tất cả các cặp nhiễm sắc thể tương đồng.
+
+D. Thay đổi cấu trúc nhiễm sắc thể ở một hay 1 số cặp nhiễm sắc thể tương đồng.
+
+45. Cơ thể mà trong tế bào sinh dưỡng có một hoặc một số cặp nhiễm sắc thể bị thay đổi về số lượng được gọi là
+
+A. thể đa bội.
+
+B. đột biến số lượng nhiễm sắc thể.
+
+C. thể dị bội.
+
+D. đột biến cấu trúc nhiễm sắc thể.
+
+Thông hiểu
+
+46. Khi nói về đột biến lệch bội NST, phát biểu nào sau đây sai?
+
+A. Đột biến lệch bội chỉ xảy ra ở các cặp NST thường mà không xảy ra ở cặp NST giới tính.
+
+B. Đột biến lệch bội làm cho một hoặc một số cặp NST tương đồng không phân li trong phân bào.
+
+C. Đột biến lệch bội giúp xác định vị trí gen trên NST.
+
+D. Đột biến lệch bội có thể hình thành thể khảm.
+
+47. Một loài thực vật có bộ NST 2n = 24. Một tế bào sinh dục chín của thể ba nhiễm kép. Số NST trong tế bào là?
+
+A. 22.
+
+B. 23.
+
+C. 25.
+
+D. 26.
+
+48. Đậu Hà Lan có bộ NST lưỡng bội 2n = 14. Tế bào sinh dưỡng của thể ba thuộc loài này có bao nhiêu NST?
+
+A. 13.
+
+B. 42.
+
+C. 15.
+
+D. 21.
+
+49. Ở ruồi giấm đực có bộ nhiễm sắc thể được ký hiệu AaBbDdXY. Trong quá trình phát triển phôi sớm, ở lần phân bào thứ 6 người ta thấy ở một số tế bào cặp Dd không phân ly. Thể đột biến có
+
+A. hai dòng tế bào đột biến là 2n+2 và 2n-2.
+
+B. ba dòng tế bào gồm một dòng bình thường 2n và hai dòng đột biến 2n+1 và 2n-1.
+
+C. hai dòng tế bào đột biến là 2n+1 và 2n-1.
+
+D. ba dòng tế bào gồm một dòng bình thường 2n và hai dòng đột biến 2n+2 và 2n-2.
+
+6.  QUY LUẬT MENDEN: QUY LUẬT PHÂN LY
+
+Nhận biết
+
+50. Đối tượng Menden chọn làm cặp bố mẹ trong nghiên cứu của mình là:
+
+A. Dòng thuần chủng.
+
+B. Dòng nào cũng được.
+
+C. Dòng có tính trạng lặn.
+
+D. Dòng có tính trạng trội.
+
+51. Các bước trong phương pháp lai và phân tích cơ thể lai của MenĐen gồm:
+
+1. Đưa giả thuyết giải thích kết quả và chứng minh giả thuyết.
+
+2. Lai các dòng thuần khác nhau về 1 hoặc vài tính trạng rồi phân tích kết quả ở F1, F2, F3.
+
+3. Tạo các dòng thuần chủng.
+
+4. Sử dụng toán xác suất để phân tích kết quả lai.
+
+Trình tự các bước Menđen đã tiến hành nghiên cứu để rút ra được quy luật di truyền là:
+
+A. 1, 2, 3, 4.
+
+B. 2, 3, 4, 1.
+
+C. 3, 2, 4, 1.
+
+D. 2, 1, 3, 4.
+
+52. Trong các thí nghiệm của Menđen, khi lai bố mẹ thuần chủng khác nhau về một cặp tính trạng tương phản, ông nhận thấy ở thế hệ F2
+
+A. có sự phân li theo tỉ lệ 3 trội: 1 lặn.
+
+B. có sự phân li theo tỉ lệ 1 trội: 1 lặn.
+
+C. đều có kiểu hình khác bố mẹ.
+
+D. đều có kiểu hình giống bố mẹ.
+
+53. Trong thí nghiệm lai một tính trạng của Menden trên đối tượng đậu hà Lan, ông cho các cây hoa đỏ (thuần chủng) lai với cây hoa trắng (thuần chủng) thu được F1 có 100% cây hoa đỏ. Cho các cây F1 tư thụ thu được F2 có tỉ lệ phân li kiểu hình xấp xỉ là:
+
+A. 100% cây hoa đỏ.
+
+B. 3 cây hoa trắng : 1 cây hoa đỏ.
+
+C. 1 cây hoa đỏ : 2 cây hoa hồng : 1 cây hoa trắng.
+
+D. 3 cây hoa đỏ : 1 cây hoa trắng.
+
+Thông hiểu
+
+54. Hãy hoàn chỉnh nội dung định luật của Menđen khi xét về một cặp tính trạng: “Khi lai giữa các cá thể khác nhau về (A) và (B), thế hệ lai thứ nhất đồng loạt xuất hiện tính trạng (C)”. (A), (B), (C) lần lượt là:
+
+A. 1 cặp tính trạng tương phản; thuần chủng; trội.
+
+B. 1 cặp tính trạng tương phản; thuần chủng; trung gian,
+
+C. Hai cặp tính trạng; thuần chủng, trội.
+
+D. Các cặp tính trạng; thuần chủng; trội.
+
+55. Ở người, alen B quy định da bình thường; alen b qui định bị bệnh bạch tạng, gen này nằm trên NST thường. Cho rằng bố mẹ đều dị hợp, xác suất đế vợ chồng này sinh người con đầu tiên bình thường?
+
+A. 25%.
+
+B. 12,5%.
+
+C. 56,25%.
+
+D. 75%.
+
+56. Ở một loài thực vật, alen D quy định quả đỏ trội hoàn toàn so với alen d quy định quả vàng. Theo lí thuyết, phép lai Dd × dd cho đời con có kiểu hình phân li theo tỉ lệ:
+
+A. 2 cây quả đỏ : 1 cây quả vàng.
+
+B. 3 cây quả đỏ : 1 cây quả vàng.
+
+C. 1 cây quả đỏ : 1 cây quả vàng.
+
+D. 1 cây quả đỏ : 3 cây quả vàng.
+
+57. Ở người, kiểu tóc do 1 gen gồm 2 alen (A, a) nằm trên NST thường. Một người đàn ông tóc xoăn lấy vợ cũng tóc xoăn, họ sinh lần thứ nhất được 1 trai tóc xoăn và lần thứ hai được 1 gái tóc thẳng. Cặp vợ chồng này có kiểu gen là
+
+A. AA × Aa.
+
+B. AA ×AA.
+
+C. Aa ×Aa.
+
+D. AA ×aa.
+
+7.  QUY LUẬT MENDEN: QUY LUẬT PHÂN LY ĐỘC LẬP
+
+Nhận biết
+
+58. Định luật phân ly độc lập được phát biểu như sau: Khi lai cặp bố mẹ ………. khác nhau về…….cặp tính trạng tương phản thì sự di truyền của cặp tính trạng này………vào sự di truyền của cặp tính trạng kia.
+
+A. cùng loài; hai; phụ thuộc.
+
+B. thuần chủng; hai; phụ thuộc.
+
+C. thuần chủng; hai hay nhiều; không phụ thuộc.
+
+D. cùng loài; hai hay nhiều; không phụ thuộc.
+
+59. Nội dung tóm tắt của quy luật phân li độc lập là
+
+A. các cặp nhân tố di truyền phân li độc lập với nhau.
+
+B. P thuần chủng, F1 đồng trội, F2 phân li theo tỉ lệ 9:3:3:1.
+
+C. P khác nhau n cặp tính trạng, F2 có 3n kiểu gen.
+
+D. các gen không ở trên cùng 1 NST.
+
+60. Điều kiện nghiệm đúng đặc trưng của quy luật phân li độc lập là:
+
+A. Các giao tử và hợp tử có sức sống như nhau, sự biểu hiện hoàn toàn của tính trạng.
+
+B. Sự phân li các NST là như nhau khi tạo giao tử và sự kết hợp ngẫu nhiên của các giao tử khi thụ tinh.
+
+C. Số lượng cá thể ở thế hệ lai phải đủ lớn để số liệu thống kê được chính xác.
+
+D. Mỗi cặp gen phải nằm trên những NST tương đồng khác nhau.
+
+61. Khi các cặp alen quy định các tính trạng nằm trên các cặp nhiễm sắc thể khác nhau thì:
+
+A. Thường xảy ra hoán vị gen trong quá trình giảm phân tạo giao tử.
+
+B. Chúng phân li độc lập với nhau trong giảm phân tạo giao tử.
+
+C. Dễ phát sinh đột biến dưới tác động của các nhân tố gây đột biến.
+
+D. Chúng liên kết thành từng nhóm trong giảm phân tạo giao tử.
+
+Thông hiểu
+
+62. Theo lí thuyết, cơ thể có kiểu gen nào sau đây tạo ra nhiều loại giao tử nhất?
+
+A. AaBbdd.
+
+B. AaBbDd.
+
+C. AaBBDd.
+
+D. AABbDd.
+
+63. Xét 2 cặp alen A, a và B, b nằm trên 2 cặp nhiễm sắc thể thường đồng dạng khác nhau. Hãy cho biết: Có thể có bao nhiêu kiểu hình khác nhau trong quần thể?
+
+A. 9.
+
+B. 6.
+
+C. 4.
+
+D. 1.
+
+64. Cơ thể có kiểu gen AaBbddEe qua giảm phân sẽ cho số lọai giao tử:
+
+A. 6.
+
+B. 8.
+
+C. 12.
+
+D. 16.
+
+65. Phép lai giữa 2 cá thể khác nhau về 3 tính trạng trội, lặn hoàn toàn AaBbDd x AaBbDd sẽ có:
+
+A. 4 kiểu hình : 9 kiểu gen.
+
+B. 4 kiểu hình: 12 kiểu gen.
+
+C. 8 kiểu hình: 12 kiểu gen.
+
+D. 8 kiểu hình: 27 kiểu gen.
+
+8.  TƯƠNG TÁC GEN VÀ TÁC ĐỘNG ĐA HIỆU CỦA GEN
+
+Nhận biết
+
+66. Ở các loài sinh vật nhân thực, hiện tượng các alen thuộc các lôcut gen khác nhau cùng quy định một tính trạng được gọi là:
+
+A. Tương tác gen.
+
+B. Hoán vị gen.
+
+C. Tác động đa hiệu của gen.
+
+D. Liên kết gen.
+
+67. Ở các loài sinh vật nhân thực, tương tác gen là hiện tượng:
+
+A. Các alen thuộc cùng một lôcut gen cùng quy định một tính trạng.
+
+B. Các alen thuộc các lôcut gen khác nhau cùng quy định một tính trạng.
+
+C. Các alen thuộc các lôcut gen khác nhau cùng quy định các tính trạng khác nhau.
+
+D. Các alen thuộc các lôcut gen trên NST giới tính.
+
+Thông hiểu
+
+68. Ở một loài thực vật xét 2 cặp gen (A, a và B, b); trong kiểu gen có mặt cả 2 gen trội A và B quy định kiểu hình hoa đỏ, các kiểu gen còn lại quy định kiểu hình hoa trắng. Số kiểu gen quy định kiểu hình hoa đỏ tối đa trong loài là?
+
+A. 3.
+
+B. 2.
+
+C. 1.
+
+D. 4.
+
+69. Ở một loài thực vật, chiều cao cây dao động từ 100 đến 180cm. Khi cho cây cao 100cm lai với cây có chiều cao 180cm được F1. Chọn hai cây F1 cho giao phấn với nhau, thống kê các kiểu hình thu được ở F2, kết quả được biểu diễn ở biểu đồ sau:
+
+[TƯƠNG TÁC GEN]
+
+Giả thuyết nào sau đây phù hợp nhất về sự di truyền của tính trạng chiều cao cây?
+
+A. Tính trạng di truyền theo quy tương tác gen cộng gộp, có ít nhất 3 cặp gen tác động đến sư hình thành tính trạng.
+
+B. Tính trạng di truyền theo quy luật trội hoàn toàn,gen quy định chiều cao cây có 9 alen.
+
+C. Tính trạng di truyền theo quy luật tương tác gen bổ sung, có ít nhất 4 cặp gen tác động đến sự hình thành tính trạng.
+
+D. Tính trạng di truyền theo quy tương tác gen cộng gộp, có ít nhất 4 cặp gen tác động đến sự hình thành tính trạng.
+
+70. Ở một loài thực vật, để tạo thành màu đỏ của hoa có sự tác động của 2 gen A và B theo sơ đồ :
+
+[TƯƠNG TÁC GEN]
+
+Gen a và gen b là các bản sao đột biến, không tạo được enzim tương ứng có các chức năng. Biết hai cặp gen nằm trên 2 cặp NST khác nhau. Cho cây AaBb tự thụ phấn được F1 thì tỷ lệ kiểu hình ở đời F1 là:
+
+A. 9 đỏ: 6 vàng: 1 trắng.
+
+B. 12 đỏ: 3 vàng: 1 trắng.
+
+C. 9 đỏ: 3 trắng: 4 vàng.
+
+D. 9 đỏ: 3 vàng: 4 trắng.
+
+71. Thực chất của tương tác gen là:
+
+A. Sản phẩm của các gen tác động qua lại với nhau trong sự hình thành tính trạng
+
+B. Các gen tác động qua lại với môi trường trong sự hình thành một kiểu hình.
+
+C. Các tính trạng do gen quy định tác động qua lại với nhau trong một kiểu gen.
+
+D. Sản phẩm của gen này tác động lên sự biểu hiện của gen khác trong 1 kiểu gen.
+
+9.  LIÊN KẾT GEN
+
+Nhận biết
+
+72. Đối tượng trong nghiên cứu di truyền của Morgan là:
+
+A. Đậu Hà Lan.
+
+B. Ruồi giấm.
+
+C. Thỏ.
+
+D. Chuột bạch.
+
+73. Thế nào là nhóm gen liên kết?
+
+A. Các gen alen cùng nằm trên một NST phân li cùng nhau trong quá trình phân bào.
+
+B. Các gen không alen cùng nằm trên một NST phân li cùng nhau trong quá trình phân bào
+
+C. Các gen không alen nằm trong bộ NST phân li cùng nhau trong quá trình phân bào
+
+D. Các gen alen nằm trong bộ NST phân li cùng nhau trong quá trình phân bào.
+
+74. Trường hợp nào sẽ dẫn tới sự di truyền liên kết?
+
+A. Các cặp gen qui định các cặp tính trạng nằm trên các cặp nhiễm sắc thể khác nhau.
+
+B. Các cặp gen qui định các cặp tính trạng xét tới cùng nằm trên 1 cặp nhiễm sắc thể.
+
+C. Các tính trạng khi phân ly làm thành một nhóm tính trạng liên kết.
+
+D. Tất cả các gen nằm trên cùng một nhiễm sắc thể phải luôn di truyền cùng nhau.
+
+Thông hiểu
+
+75. Nhận định nào sau đây về liên kết gen là KHÔNG đúng?
+
+A. Liên kết gen đảm bảo sự di truyền ổn định của nhóm tính trạng.
+
+B. Liên kết gen là hiện tượng di truyền phổ biến, vì số lượng NST ít mà số gen rất lớn.
+
+C. Các gen càng nằm ở vị trí gần nhau trên một NST thì liên kết càng bền vững.
+
+D. Di truyền liên kết gen không làm xuất hiện biến dị tổ hợp.
+
+76. Ở ruồi giấm, bộ nhiễm sắc thể lưỡng bội 2n= 8. Số nhóm gen liên kết của loài này là
+
+A. 2.
+
+B. 8.
+
+C. 4.
+
+D. 6.
+
+77. Cá thể có kiểu gen Dd[LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)]tạo ra mấy loại giao tử:
+
+A. 4.
+
+B. 8.
+
+C. 2.
+
+D. 16.
+
+78. Khi cho đậu hoa vàng, cánh thẳng lai với đậu hoa tím, cánh cuốn thu được F1 100% đậu hoa tím, cánh thẳng. Cho F1 giao phấn với nhau thu được F2 gồm 105 đậu hoa vàng, cánh thẳng, 210 đậu hoa tím, cánh thẳng, 100 đậu hoa tím, cánh cuốn. Biết rằng mỗi gen quy định một tính trạng. Nhận xét nào sau đây là sai? 
+
+A. F2 thu được số kiểu gen nhiều hơn số kiểu hình.
+
+B. Các cặp tính trạng di truyền liên kết hoàn toàn.
+
+C. F2 thu được tỉ lệ kiểu hình giống tỉ lệ kiểu gen.
+
+D. Các cặp tính trạng di truyền xảy ra hoán vị gen.
+
+79. Biết rằng mỗi gen quy định một tính trạng, alen trội là trội hoàn toàn. Phép lai nào sau đây cho đời con có kiểu hình phân li theo tỉ lệ 1 : 1 : 1 : 1?
+
+A. [LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)]x[LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)].
+
+B. [LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)]x[LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)].
+
+C. [LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)]x[LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)].
+
+D. [LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)]x[LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)].
+
+10. HOÁN VỊ GEN
+
+Nhận biết
+
+80. Hoán vị gen xảy ra trong giảm phân là do:
+
+A. Sự trao đổi chéo giữa hai cromatit khác nguồn trong cặp NST kép khác nhau.
+
+B. Sự trao đổi chéo giữa hai cromatit cùng nguồn trong cặp NST kép khác nhau.
+
+C. Sự trao đổi chéo giữa hai cromatit khác nguồn trong cặp NST kép tương đồng.
+
+D. Sự trao đổi đoạn giữa hai cromatit cùng nguồn trong cặp NST kép tương đồng.
+
+81. Nhận định nào dưới đây về tần số hoán vị gen không đúng?
+
+A. Được sử dụng để lập bản đồ gen.
+
+B. Thể hiện lực liên kết giữa các gen trong tế bào.
+
+C. Tỉ lệ nghịch với khoảng cách giữa các gen.
+
+D. Có tỷ lệ không vượt quá 50%.
+
+82. Để xác định tần số hoán vị gen, người ta thường làm như thế nào?
+
+A. Lai tế bào xôma.
+
+B. Lai xa.
+
+C. Lai phân tích.
+
+D. Lai thuận nghịch.
+
+83. Sau khi lai ruồi giấm thuần chủng thân xám cánh dài với thân đen cánh cụt được F1 thì Morgan đã thí nghiệm tiếp thế nào để phát hiện hoán vị gen ?
+
+A. Lai phân tích ruồi cái F1.
+
+B. Lai phân tích ruồi đực P.
+
+C. Lai phân tích ruồi đực F1.
+
+D. Lai phân tích ruồi cái P.
+
+Thông hiểu
+
+84. Hiện tượng hoán vị gen làm tăng tính đa dạng ở các loài giao phối vì:
+
+A. Giảm phân tạo nhiều đột biến, khi thụ tinh tạo nhiều tổ hợp kiểu gen, biểu hiện thành nhiều kiểu hình.
+
+B. Giảm phân tạo nhiều giao tử, khi thụ tinh tạo nhiều tổ hợp kiểu gen, biểu hiện thành nhiều kiểu hình.
+
+C. Giảm phân tạo nhiều giao tử, khi thụ tinh tạo nhiều tổ hợp kiểu hình, biểu hiện thành nhiều tính trạng.
+
+D. Giảm phân tạo nhiều gen, khi thụ tinh tạo nhiều tổ hợp kiểu gen, biểu hiện thành nhiều kiểu hình.
+
+85. Ở một loài thực vật, gen A quy định thân cao trội hoàn toàn so với gen a quy định thân thấp, gen B quy định hoa đỏ trội hoàn toàn so với gen b quy định hoa trắng. Lai cây thân cao, hoa đỏ với cây thân thấp, hoa trắng thu được F1 phân li theo tỉ lệ: 37,5% cây thân cao, hoa trắng : 37,5% cây thân thấp, hoa đỏ : 12,5% cây thân cao, hoa đỏ : 12,5% cây thân thấp, hoa trắng. Cho biết không có đột biến xảy ra. Hai tính trạng này di truyền theo quy luật nào?
+
+A. Phân ly độc lập.
+
+B. Liên kết gen.
+
+C. Hoán vị gen.
+
+D. Tương tác gen.
+
+86. Một cơ thể có kiểu gen[LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)]khi giảm phân có trao đổi chéo xảy ra có thể cho tối đa mấy loại giao tử?
+
+A. 8.
+
+B. 4.
+
+C. 16.
+
+D. 2.
+
+87. Một cá thể có kiểu gen Aa[LIÊN KẾT GEN (DI TRUYỀN LIÊN KẾT HOÀN TOÀN)], tần số hoán vị gen giữa hai gen B và D là 30%. Tỉ lệ loại giao tử aBD là
+
+A. 7,5%.
+
+B. 17,5%.
+
+C. 35%.
+
+D. 15%.
+
+11. DI TRUYỀN LIÊN KẾT VỚI GIỚI TÍNH VÀ DI TRUYỀN NGOÀI NHÂN
+
+Nhận biết
+
+88. Nhiễm sắc thể giới tính là loại NST
+
+A. không mang gen quy định giới tính và cả gen quy định tính trạng thường.
+
+B. mang gen quy định giới tính và có thể mang cả gen quy định tính trạng thường.
+
+C. chỉ mang gen quy định giới tính, không mang gen quy định tính trạng thường.
+
+D. không mang gen quy định giới tính, chỉ mang gen quy định tính trạng thường.
+
+89. Các bệnh mù màu, máu khó đông ở người di truyền theo quy luật nào?
+
+A. Di truyền ngoài nhân.
+
+B. Tương tác gen.
+
+C. Theo dòng mẹ.
+
+D. Liên kết với giới tính.
+
+90. Tính trạng có túm lông ở vành tai di truyền theo quy luật nào?
+
+A. Di truyền ngoài nhân.
+
+B. Tương tác gen.
+
+C. Liên kết gen.
+
+D. Liên kết với giới tính.
+
+91. Trong quy luật di truyền liên kết với giới tính, phép lai thuận nghịch cho kết quả?
+
+A. Tỉ lệ phân li kiểu hình khác nhau ở hai giới.
+
+B. Con lai luôn có kiểu hình giống mẹ.
+
+C. Con lai F1 đồng tính và chỉ biểu hiện tính trạng một bên bố hoặc mẹ.
+
+D. Tỉ lệ phân li kiểu hình ở hai giới giống nhau.
+
+Thông hiểu
+
+92. Trong trường hợp một gen qui định một tính trạng, nếu kết quả lai thuận và lai nghịch khác nhau ở 2 giới, tính trạng lặn xuất hiện ở giới dị giao tử (XY) nhiều hơn ở giới đồng giao tử (XX) thì tính trạng này được quy định bởi gen:
+
+A. Nằm ngoài nhiễm sắc thể.
+
+B. Nằm trên nhiễm sắc thể giới tính Y, không có alen tương ứng trên X.
+
+C. Nằm trên nhiễm sắc thể thường.
+
+D. Nằm trên nhiễm sắc thể giới tính X, không có alen tương ứng trên Y.
+
+93. Các gen quy định tính trạng nằm trên NST Y ở đoạn không tương đồng chỉ di truyền cho
+
+A. giới đực.
+
+B. giới cái.
+
+C. giới đồng giao tử.
+
+D. giới dị giao tử.
+
+94. Ở một loài động vật, mỗi cặp tính trạng màu thân và màu mắt đều do một cặp gen quy định. Cho con đực (XY) thân đen, mắt trắng thuần chủng lai với con cái (XX) thân xám, mắt đỏ thuần chủng được F₁ đồng loạt thân xám, mắt đỏ. Cho F₁ giao phối với nhau, đời F₂ có 50% con cái thân xám, mắt đỏ : 20% con đực thân xám, mắt đỏ : 20% con đực thân đen, mắt trắng : 5% con đực thân xám, mắt trắng : 5% con đực thân đen, mắt đỏ. Tần số hoán vị gen ở cá thể cái F₁ là
+
+A. 40%.
+
+B. 20%.
+
+C. 30%.
+
+D. 10%.
+
+95. Phép lai nào sau đây cho tỉ lệ phân li kiểu hình đời con giống nhau ở cả hai giới?
+
+A. [DI TRUYỀN LIÊN KẾT VỚI GIỚI TÍNH].
+
+B. [DI TRUYỀN LIÊN KẾT VỚI GIỚI TÍNH].
+
+C. [DI TRUYỀN LIÊN KẾT VỚI GIỚI TÍNH].
+
+D. [DI TRUYỀN LIÊN KẾT VỚI GIỚI TÍNH].

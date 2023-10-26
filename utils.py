@@ -1,6 +1,5 @@
 import os
 import re
-import psutil
 import subprocess
 
 from tkinter.filedialog import askopenfilenames
@@ -46,8 +45,8 @@ def get_correct_answer_index(options, highlights):
     # Gets the index of the correct answer from options based on highlighted text.
     for i, option_text in enumerate(options):
         cleaned_text = re.sub(r'^[a-dA-D]\. ', '', option_text).strip()
-
-            
+        if cleaned_text in highlights:
+            return i+1
     return None
 
 def quizizz(data, current_question, current_options, highlights):
@@ -107,7 +106,7 @@ def create_quiz(data, current_question, current_options, highlights, platform):
     except Exception:
         pass
 
-def process_options(current_question, current_options, highlights, selected_options, question_number):
+def process_options(current_question, current_options, selected_options, question_number):
     pattern = r'Câu (\d+)'
     match = re.search(pattern, current_question)
     r_match_1 = re.search(r'^Câu (\d+)\.', current_question)
@@ -132,7 +131,6 @@ def process_options(current_question, current_options, highlights, selected_opti
 
     if "Remove 'A,B,C,D'" in selected_options:
         current_options = [CFL(re.sub(r'[a-dA-D]\.\s*', '', option).strip()) for option in current_options]
-        highlights = [CFL(re.sub(r'[a-dA-D]\.\s*', '', highlight).strip()) for highlight in highlights]
 
     if "Add 'Câu'" in selected_options and not "Câu" in current_question:
         current_question = re.sub(r"(\d+)", r'Câu \1', current_question, 1)
@@ -140,7 +138,7 @@ def process_options(current_question, current_options, highlights, selected_opti
     if match:
         current_question = re.sub(pattern, f"Câu {question_number}", current_question)
 
-    return current_question, current_options, highlights
+    return current_question, current_options
 
 def close_excel(file_name):
     if os.path.exists(file_name):
