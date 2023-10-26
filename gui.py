@@ -8,7 +8,7 @@ def run():
     file_paths = open_folder()
 
     if not file_paths:
-        status_label.config(text="Please select at least one Word document", fg="red")
+        status_label.config(text="Vui lòng chọn ít nhất một file Word", fg="red")
         return
 
     # Get platform and selected options
@@ -30,23 +30,23 @@ def run():
         doc = docx.Document(path)
 
         if doc is False:
-            status_label.config(text="Invalid format, please select a Word document!", fg="red")
+            status_label.config(text="Lỗi định dạng định dạng, vui lòng chọn file Word!", fg="red")
             break
 
         question_numbers = question_create(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers)
 
-        if "Merge multiple files into one" not in selected_options:
+        if "Gộp nhiều tệp thành một" not in selected_options:
             data_frame(data, file_path, selected_options)
         else:
             all_data.extend(data)
 
-    if "Merge multiple files into one" in selected_options:
+    if "Gộp nhiều tệp thành một" in selected_options:
         data_frame(all_data, "Merged_File.xlsx", selected_options)
 
     for temp_file in del_list:
         os.remove(temp_file)
 
-    status_label.config(text="Success!", fg="green")
+    status_label.config(text="Chuyển đổi thành công!", fg="green")
     window.after(2000, window.quit)
 
 # Create the main window
@@ -91,7 +91,7 @@ platform_kahoot.grid(row=2, column=1, pady=10, padx=10, sticky="w")
 platform_blooket.grid(row=2, column=2, pady=10, padx=10, sticky="w")
 
 # Choice checkboxes
-checkbox_options = ["Remove 'Question'", "Remove 'A,B,C,D'", "Fix format errors", "Add 'Question'", "Shuffle questions", "Merge multiple files into one"]
+checkbox_options = ["Xóa chữ 'Câu'", "Xóa chữ 'A,B,C,D'", "Sửa lỗi định dạng","Thêm chữ 'Câu'", "Xáo trộn câu hỏi", "Gộp nhiều tệp thành một"]
 checkboxes = {}
 
 for i, option_text in enumerate(checkbox_options):
@@ -100,16 +100,19 @@ for i, option_text in enumerate(checkbox_options):
     checkbox = tk.Checkbutton(main_frame, text=option_text, variable=var, anchor="w")
     checkbox.grid(row=3 + (i // 3), column=i % 3, pady=10, padx=10, sticky="w")
 
-# Ensure "Fix format errors" checkbox is always checked
-checkboxes["Fix format errors"].set(True)
-
+# Set "Sửa lỗi định dạng" checkbox to be always checked
+checkboxes["Sửa lỗi định dạng"].set(True)
+checkboxes["Thêm chữ 'Câu'"].set(True)
 # Create a frame for the version label
+# Version label
 version_label = tk.Label(main_frame, text="Author: caphefalumi", fg="blue", font=("Open sans", 8))
 version_label.grid(row=5, column=2, sticky="e", padx=5, pady=10)
 
+
 # Status label
 status_label = tk.Label(main_frame, text="", fg="green")
-status_label.grid(row=5, column=0, columnspan=3, pady=10, padx=10)
+status_label.grid(row=5, column=0, columnspan=3, pady=10, padx=10)  # Center the label using "sticky"
 
 # Start the GUI application
+window.attributes('-topmost', True)
 window.mainloop()

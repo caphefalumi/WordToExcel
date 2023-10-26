@@ -20,7 +20,7 @@ def doc_to_docx(file_path, del_list):
         for line in text:
             document.add_paragraph(line)
         document.save(f'{temp_name}.docx')
-        #os.remove(f'{temp_name}.txt')
+        os.remove(f'{temp_name}.txt')
         del_list.append(os.path.abspath(f'{temp_name}.docx'))
         return del_list
     def extract_original_format(file_path):

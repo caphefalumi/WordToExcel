@@ -1,7 +1,6 @@
 import os
 import re
 import subprocess
-
 from tkinter.filedialog import askopenfilenames
 
 # Helper function to open a window that specifies a file's path
@@ -114,7 +113,7 @@ def process_options(current_question, current_options, selected_options, questio
     r_match_3 = re.search(r'^Câu (\d+) ', current_question)
     current_question = current_question.replace('câu', 'Câu')
 
-    if "Fix format errors" in selected_options:
+    if "Sửa lỗi định dạng" in selected_options:
         # Add a period after the number following "Câu" if it's missing
         if match and not r_match_1 and not r_match_2:
             # Add a period after the number
@@ -124,15 +123,15 @@ def process_options(current_question, current_options, selected_options, questio
         current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {CFL(match.group(2))}', current_question)
         current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{CFL(match.group(1))}. {CFL(match.group(2).strip())}', option) for option in current_options]
 
-    if "Remove 'Câu'" in selected_options:
+    if "Xóa chữ 'Câu'" in selected_options:
         current_question = CFL(re.sub(r'^Câu \d+\.', '', current_question).strip())
         current_question = CFL(re.sub(r'^Câu \d+\:', '', current_question).strip())
         current_question = CFL(re.sub(r'\d+\.', '', current_question).strip())
 
-    if "Remove 'A,B,C,D'" in selected_options:
+    if "Xóa chữ 'A,B,C,D'" in selected_options:
         current_options = [CFL(re.sub(r'[a-dA-D]\.\s*', '', option).strip()) for option in current_options]
 
-    if "Add 'Câu'" in selected_options and not "Câu" in current_question:
+    if "Thêm chữ 'Câu'" in selected_options and not "Câu" in current_question:
         current_question = re.sub(r"(\d+)", r'Câu \1', current_question, 1)
 
     if match:
