@@ -24,10 +24,9 @@ def run():
         data = []
         current_question = ""
         current_options = []
-        highlights = []
 
         # Convert .doc to .docx if needed
-        path, del_list = doc_to_docx(file_path, del_list)
+        path, highlights, del_list = doc_to_docx(file_path, del_list)
         doc = docx.Document(path)
 
         if doc is False:

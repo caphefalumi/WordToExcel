@@ -45,8 +45,9 @@ def extract_format_text(paragraph):
 def get_correct_answer_index(options, highlights):
     # Gets the index of the correct answer from options based on highlighted text.
     for i, option_text in enumerate(options):
-        if option_text in highlights:
-            return i + 1
+        cleaned_text = re.sub(r'^[a-dA-D]\. ', '', option_text).strip()
+
+            
     return None
 
 def quizizz(data, current_question, current_options, highlights):
@@ -84,7 +85,10 @@ def blooket(data, current_question, current_options, highlights):
 
     data.append({
         'Question Text': current_question,
-        **answers,
+        'Answer 1': current_options[0] if len(current_options) > 0 else "",
+        'Answer 2': current_options[1] if len(current_options) > 1 else "",
+        'Answer 3': current_options[2] if len(current_options) > 2 else "",
+        'Answer 4': current_options[3] if len(current_options) > 3 else "",
         'Time limit': 30,
         'Correct Answer': get_correct_answer_index(current_options, highlights),
     })
@@ -120,7 +124,6 @@ def process_options(current_question, current_options, highlights, selected_opti
         # Capitalize the text after "Câu X."
         current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {CFL(match.group(2))}', current_question)
         current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{CFL(match.group(1))}. {CFL(match.group(2).strip())}', option) for option in current_options]
-        highlights = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{CFL(match.group(1))}. {CFL(match.group(2).strip())}', highlight) for highlight in highlights]
 
     if "Remove 'Câu'" in selected_options:
         current_question = CFL(re.sub(r'^Câu \d+\.', '', current_question).strip())
@@ -138,26 +141,6 @@ def process_options(current_question, current_options, highlights, selected_opti
         current_question = re.sub(pattern, f"Câu {question_number}", current_question)
 
     return current_question, current_options, highlights
-
-def is_explorer_window_open(file_name):
-    explorer_process_name = "explorer.exe"
-    
-    # Iterate over running processes and check if any have the same file open
-    for process in psutil.process_iter(attrs=['name']):
-        if process.info['name'] == explorer_process_name:
-            try:
-                process_files = process.open_files()
-                for file in process_files:
-                    if file.path == file_name:
-                        return True
-            except (psutil.AccessDenied, psutil.NoSuchProcess):
-                pass
-
-    return False
-
-def open_file_explorer(file_name):
-    if not is_explorer_window_open(file_name):
-        subprocess.Popen(f'explorer /select,"{file_name}"')
 
 def close_excel(file_name):
     if os.path.exists(file_name):

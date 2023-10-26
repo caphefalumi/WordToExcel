@@ -23,9 +23,15 @@ def doc_to_docx(file_path, del_list):
         os.remove(f'{temp_name}.txt')
         del_list.append(os.path.abspath(f'{temp_name}.docx'))
         return del_list
-    document = docx.Document(file_path)
-    for paragraph in document.paragraphs:
-        highlighted_text = extract_format_text(paragraph)
+    def extract_original_format(file_path):
+        highlights = []
+        document = docx.Document(file_path)
+        for paragraph in document.paragraphs:
+            highlighted_text = extract_format_text(paragraph)
+            highlights.append(highlighted_text)
+            highlights = [CFL(re.sub(r'^[a-dA-D]\.', '', highlight).strip()) for highlight in highlights]
+        return highlights
+    highlights = extract_original_format(file_path)
     # Split the file path into name and extension
     name, ext = os.path.splitext(os.path.basename(file_path))
     # Rename path with .docx
@@ -42,8 +48,8 @@ def doc_to_docx(file_path, del_list):
     elif ext == ".docx":
         del_list = convert_to_docx(file_path, name, del_list)
     else: 
-        return False, del_list
-    return new_file_abs, del_list
+        return False, highlights, del_list
+    return new_file_abs, highlights, del_list
 
 def question_create(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers):
     for paragraph in doc.paragraphs:
@@ -53,7 +59,6 @@ def question_create(doc, current_question, current_options, highlights, data, pl
             continue
         
         if is_question(text):
-            print(text, 1)
             if current_question and len(current_options) > 0:
                 current_question, current_options, highlights = process_options(current_question, current_options, highlights, selected_options, question_numbers)
                 question_numbers += 1
@@ -61,8 +66,6 @@ def question_create(doc, current_question, current_options, highlights, data, pl
             current_question = text
             current_options = []  # Clear the options list for the new questions
         elif is_option(text):
-            highlighted_text = extract_format_text(paragraph)
-            highlights.append(highlighted_text)
             for option in split_options(text):
                 current_options.append(option)
 
