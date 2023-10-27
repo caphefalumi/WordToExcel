@@ -31,6 +31,7 @@ def split_options(text: str) -> list:
     if is_option(text):
         return re.split(r'\s+(?=[a-dA-D]\.)', text)
 
+
 def extract_format_text(text) -> str:
     # Extracts formatted text (highlighted or bold) from a paragraph.
     format_text = ""
@@ -39,6 +40,7 @@ def extract_format_text(text) -> str:
             format_text += run.text
     return format_text
 
+#Get the correct answer index and remove that answer to optimze the performance
 def get_correct_answer_index(options: list, highlights: list) -> int:
     # Gets the index of the correct answer from options based on highlighted text.
     for i, option_text in enumerate(options):
