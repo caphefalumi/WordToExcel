@@ -1,6 +1,8 @@
 import os
 import docx
 import tkinter as tk
+from subprocess import Popen, PIPE
+from utils import close_excel
 from main import open_folder, question_create, data_frame, doc_to_docx
 
 def run():
@@ -19,7 +21,8 @@ def run():
     all_data = []
     del_list = []
     question_numbers = 1
-
+    #Close excel first to prevent any error
+    close_excel()
     for file_path in file_paths:
         data = []
         current_question = ""
@@ -27,16 +30,16 @@ def run():
 
         # Convert .doc to .docx if needed
         path, highlights, del_list = doc_to_docx(file_path, del_list)
-        doc = docx.Document(path)
-
-        if doc is False:
+        if path is False:
             status_label.config(text="Lỗi định dạng định dạng, vui lòng chọn file Word!", fg="red")
             break
-
+        doc = docx.Document(path)
         question_numbers = question_create(doc, current_question, current_options, highlights, data, platform, selected_options, question_numbers)
 
         if "Gộp nhiều tệp thành một" not in selected_options:
+            question_numbers = 1
             data_frame(data, file_path, selected_options)
+            
         else:
             all_data.extend(data)
 
@@ -45,7 +48,9 @@ def run():
 
     for temp_file in del_list:
         os.remove(temp_file)
-
+    #Open output directory
+    process = Popen(['explorer',"Output"], stdout=PIPE, stderr=PIPE)
+    stdout, stderr = process.communicate()
     status_label.config(text="Chuyển đổi thành công!", fg="green")
     window.after(2000, window.quit)
 
@@ -61,11 +66,9 @@ main_frame.pack(pady=20, padx=10)
 # Load the logo image
 try:
     p1 = tk.PhotoImage(file='logo.png')
-    window.iconphoto(False, p1)
 except Exception:
     p1 = tk.PhotoImage(file='Images\logo.png')
-    window.iconphoto(False, p1)
-    pass
+window.iconphoto(False, p1)
 
 # Header label
 header_label = tk.Label(main_frame, text="Convert Word to Excel", font=("Helvetica", 16))
@@ -91,7 +94,7 @@ platform_kahoot.grid(row=2, column=1, pady=10, padx=10, sticky="w")
 platform_blooket.grid(row=2, column=2, pady=10, padx=10, sticky="w")
 
 # Choice checkboxes
-checkbox_options = ["Xóa chữ 'Câu'", "Xóa chữ 'A,B,C,D'", "Sửa lỗi định dạng","Thêm chữ 'Câu'", "Xáo trộn câu hỏi", "Gộp nhiều tệp thành một"]
+checkbox_options = ["Xóa chữ 'Câu'", "Thêm chữ 'Câu'", "Sửa lỗi định dạng","Xóa chữ 'A,B,C,D'", "Xáo trộn câu hỏi", "Gộp nhiều tệp thành một"]
 checkboxes = {}
 
 for i, option_text in enumerate(checkbox_options):
