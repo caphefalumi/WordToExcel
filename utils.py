@@ -19,13 +19,13 @@ def CFL(text: str) -> str:
 # Helper function to check whether a text is a question
 def is_question(text: str) -> bool:
     """Check if a text is question."""
-    if text.startswith("Câu ") or text.startswith("Câu") or re.match(r"(\d+)\.", text):
+    if text.startswith("Câu. ") or text.startswith("Câu") or re.match(r"(\d+)\.", text):
         return True
 
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
 def is_option(text: str) -> bool:
     """Check if a text is option"""
-    if text.startswith(("A.", "B.", "C.", "D.", "a.", "b.", "c.", "d.")):
+    if text.startswith(("A.", "B.", "C.", "D.", "a.", "b.", "c.", "d.","A ", "B ", "C ", "D ", "a ", "b ", "c ", "d ")):
         return True
 
 # Helper function to split options that are on the same line
@@ -58,7 +58,7 @@ def get_correct_answer_index(options: list, highlights: list) -> int:
     for index, option_text in enumerate(options):
         cleaned_text = re.sub(r'^[a-dA-D]\. ', '', option_text).strip()
         if cleaned_text in highlights:
-            highlights.pop(0)
+            highlights.remove(cleaned_text)
             return index+1
     return None
 

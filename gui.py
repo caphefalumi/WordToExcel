@@ -60,7 +60,7 @@ def run() -> None:
         data_frame(all_data, "Merged_File.xlsx", selected_options, open=True)
 
     for temp_file in del_list:
-        None#os.remove(temp_file)
+        os.remove(temp_file)
     #Open output directory
     process = Popen(['explorer',"Output"], stdout=PIPE, stderr=PIPE)
     stdout, stderr = process.communicate()

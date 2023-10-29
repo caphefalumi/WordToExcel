@@ -85,9 +85,9 @@ def format_file(file_path: str, del_list: list) -> tuple:
         return temp_path, highlights, del_list
 
     elif ext == ".docx":
-        del_list = convert_to_docx(file_path, name, del_list)
+        del_list = convert_to_docx(, name, del_list)
         highlights = extract_original_format(file_path)
-        return abs_file_path, highlights, del_list   
+        return new_abs_file_path, highlights, del_list   
     elif ext == ".pdf":
         cv = Converter(abs_file_path)
         cv.convert(new_abs_file_path, start=0, end=None)
@@ -127,7 +127,7 @@ def question_create(doc, current_question: str, current_options: list, highlight
     Note: The document structure and formatting rules must align with the processing logic for accurate results.
     """
     def last_question(current_question: str, current_options: list, highlights: list, data: list, platform: str, selected_options: list, question_numbers: int) -> int:
-        if current_question and current_options:
+        if current_question and len(current_options) > 0:
             question_numbers += 1
             current_question, current_options = process_options(current_question, current_options, selected_options, question_numbers)
             create_quiz(data, current_question, current_options, highlights, platform)
@@ -135,17 +135,13 @@ def question_create(doc, current_question: str, current_options: list, highlight
     for paragraph in doc.paragraphs:
         text = paragraph.text.strip()
         
-        # Check if the paragraph is empty
-        if not text:
-            continue
-        
         if is_question(text):
             if current_question and len(current_options) > 0:
                 current_question, current_options = process_options(current_question, current_options, selected_options, question_numbers)
                 question_numbers += 1
                 create_quiz(data, current_question, current_options, highlights, platform)
             current_question = text
-            current_options = []  # Clear the options list for the new questions
+            current_options.clear()  # Clear the options list for the new questions
         elif is_option(text):
             for option in split_options(text):
                 current_options.append(option)
@@ -164,12 +160,6 @@ def data_frame(data: list, file_path: str, selected_options: list, open: bool = 
         `data` (list): The data to be converted into a DataFrame.
         `file_path` (str): The path to the input file for naming the output Excel file.
         `selected_options` (list): A list of options that may include "Xáo trộn câu hỏi" to shuffle rows.
-
-    This function converts the provided list of data into a pandas DataFrame and saves it as an Excel file in an 'Output' directory. The name of the output Excel file is derived from the input file's name without the extension.
-
-    If "Xáo trộn câu hỏi" is included in the selected options, the function shuffles all rows in the DataFrame randomly.
-
-    Note: The output directory is created if it doesn't already exist, and the resulting Excel file is opened for viewing after being saved.
     """
     output_directory = "Output"
     
