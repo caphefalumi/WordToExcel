@@ -57,8 +57,8 @@ def get_correct_answer_index(options: list, highlights: list) -> int:
     # Gets the index of the correct answer from options based on highlighted text.
     for index, option_text in enumerate(options):
         cleaned_text = re.sub(r'^[a-dA-D]\. ', '', option_text).strip()
-        if cleaned_text in highlights:
-            highlights.remove(cleaned_text)
+        if cleaned_text == highlights[0]:
+            highlights.pop(0)
             return index+1
     return None
 
@@ -143,6 +143,9 @@ def process_options(current_question: str, current_options: list, selected_optio
     current_question = current_question.replace('câu', 'Câu')
 
     if "Sửa lỗi định dạng" in selected_options:
+        #Sync the question numbers
+        if match:
+            current_question = re.sub(pattern, f"Câu {question_number}", current_question)
         # Add a period after the number following "Câu" if it's missing
         if match and not r_match_1 and not r_match_2:
             # Add a period after the number
@@ -163,9 +166,7 @@ def process_options(current_question: str, current_options: list, selected_optio
     if "Thêm chữ 'Câu'" in selected_options and not "Câu" in current_question:
         current_question = re.sub(r"(\d+)", r'Câu \1', current_question, 1)
 
-    #Sync the question numbers
-    if match:
-        current_question = re.sub(pattern, f"Câu {question_number}", current_question)
+
 
     return current_question, current_options
 
