@@ -143,9 +143,7 @@ def process_options(current_question: str, current_options: list, selected_optio
     current_question = current_question.replace('câu', 'Câu')
 
     if "Sửa lỗi định dạng" in selected_options:
-        #Sync the question numbers
-        if match:
-            current_question = re.sub(pattern, f"Câu {question_number}", current_question)
+
         # Add a period after the number following "Câu" if it's missing
         if match and not r_match_1 and not r_match_2:
             # Add a period after the number
@@ -153,7 +151,7 @@ def process_options(current_question: str, current_options: list, selected_optio
 
         # Capitalize the text after "Câu X."
         current_question = re.sub(r'Câu (\d+)\.\s*([a-zA-Z])', lambda match: f'Câu {match.group(1)}. {CFL(match.group(2))}', current_question)
-        current_options = [re.sub(r'([a-dA-D])\.\s*(.*)', lambda match: f'{CFL(match.group(1))}. {CFL(match.group(2).strip())}', option) for option in current_options]
+        current_options = [re.sub(r'(^[a-dA-D])\.\s*(.*)', lambda match: f'{CFL(match.group(1))}. {CFL(match.group(2).strip())}', option) for option in current_options]
 
     if "Xóa chữ 'Câu'" in selected_options:
         current_question = CFL(re.sub(r'^Câu \d+\.', '', current_question).strip())
@@ -161,12 +159,15 @@ def process_options(current_question: str, current_options: list, selected_optio
         current_question = CFL(re.sub(r'\d+\.', '', current_question).strip())
 
     if "Xóa chữ 'A,B,C,D'" in selected_options:
-        current_options = [CFL(re.sub(r'[a-dA-D]\.\s*', '', option).strip()) for option in current_options]
+        current_options = [CFL(re.sub(r'^[a-dA-D]\.\s*', '', option).strip()) for option in current_options]
 
     if "Thêm chữ 'Câu'" in selected_options and not "Câu" in current_question:
         current_question = re.sub(r"(\d+)", r'Câu \1', current_question, 1)
-
-
+    
+    if "Gộp nhiều tệp thành một" in selected_options:
+        #Sync the question numbers
+        if match:
+            current_question = re.sub(pattern, f"Câu {question_number}", current_question)
 
     return current_question, current_options
 

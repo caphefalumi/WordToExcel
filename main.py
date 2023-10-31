@@ -85,7 +85,7 @@ def format_file(file_path: str, del_list: list) -> tuple:
         return temp_path, highlights, del_list
 
     elif ext == ".docx":
-        del_list = convert_to_docx(, name, del_list)
+        del_list = convert_to_docx(abs_file_path, name, del_list)
         highlights = extract_original_format(file_path)
         return new_abs_file_path, highlights, del_list   
     elif ext == ".pdf":
