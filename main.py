@@ -56,7 +56,7 @@ def format_file(file_path: str, del_list: list) -> tuple:
         for paragraph in document.paragraphs:
             highlighted_text = extract_format_text(paragraph)
             if is_option(highlighted_text): 
-                highlights.append(CFL(re.sub(r'^[a-dA-D]\.', '', highlighted_text).strip()))
+                highlights.append(CFL(highlighted_text).strip())
         return highlights
 
     # Split the file path into name and extension

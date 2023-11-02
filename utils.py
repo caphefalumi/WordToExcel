@@ -19,20 +19,22 @@ def CFL(text: str) -> str:
 # Helper function to check whether a text is a question
 def is_question(text: str) -> bool:
     """Check if a text is question."""
-    if text.startswith("Câu. ") or text.startswith("Câu") or re.match(r"(\d+)\.", text):
+    if text.startswith("Câu"):
         return True
 
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
 def is_option(text: str) -> bool:
     """Check if a text is option"""
     if text.startswith(("A.", "B.", "C.", "D.", "a.", "b.", "c.", "d.","A ", "B ", "C ", "D ", "a ", "b ", "c ", "d ")):
+        print(text)
+        
         return True
 
 # Helper function to split options that are on the same line
 def split_options(text: str) -> list:
     """Splits options that are on the same line into a list."""
     if is_option(text):
-        return re.split(r'\s+(?=[a-dA-D]\.)', text)
+        return re.split(r'\s+(?=^[a-dA-D]\.)', text)
 
 
 def extract_format_text(text: str) -> str:
