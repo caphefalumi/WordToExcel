@@ -16,3 +16,6 @@ __pycache__
 ###################
 settings.json
 Docx/~$*
+
+WordToExcel.spec
+.gitignore

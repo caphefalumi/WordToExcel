@@ -56,14 +56,13 @@ def format_file(file_path: str, del_list: list) -> tuple:
         for paragraph in document.paragraphs:
             highlighted_text = extract_format_text(paragraph)
             if is_option(highlighted_text): 
-                highlights.append(CFL(highlighted_text).strip())
+                highlights.append(CFL(re.sub(r'^[a-dA-D]\.', '', highlighted_text).strip()))
         return highlights
 
     # Split the file path into name and extension
     name, ext = os.path.splitext(os.path.basename(file_path))
     abs_file_path = os.path.abspath(file_path)
     new_abs_file_path = os.path.splitext(abs_file_path)[0] + '.docx'
-    new_file_abs_name = f"wteTemp{name}"
     # If the extension is .doc change it into .docx and do the same as .docx
     if ext == ".doc":
         temp_name = f"wteDocTemp{name}"
@@ -88,6 +87,7 @@ def format_file(file_path: str, del_list: list) -> tuple:
         del_list = convert_to_docx(abs_file_path, name, del_list)
         highlights = extract_original_format(file_path)
         return new_abs_file_path, highlights, del_list   
+    
     elif ext == ".pdf":
         cv = Converter(abs_file_path)
         cv.convert(new_abs_file_path, start=0, end=None)
@@ -152,29 +152,28 @@ def question_create(doc, current_question: str, current_options: list, highlight
     return question_numbers
 
 # Function to create an Excel data frame
-def data_frame(data: list, file_path: str, selected_options: list, open: bool = True) -> None:
+def data_frame(data: list, file_path: str, selected_options: list, open_file: bool = True) -> None:
     """
     Convert a list of data into a DataFrame, optionally shuffle rows, and save it as an Excel file.
 
     Args:
-        `data` (list): The data to be converted into a DataFrame.
-        `file_path` (str): The path to the input file for naming the output Excel file.
-        `selected_options` (list): A list of options that may include "Xáo trộn câu hỏi" to shuffle rows.
+        data (list): The data to be converted into a DataFrame.
+        file_path (str): The path to the input file for naming the output Excel file.
+        selected_options (list): A list of options that may include "Shuffle questions" to shuffle rows.
+        open_file (bool, optional): Whether to open the output file after saving. Defaults to True.
     """
     output_directory = "Output"
-    
-    # Create the output directory if it doesn't exist
     os.makedirs(output_directory, exist_ok=True)
     
-    # Get the file name without extension
     file_name = os.path.splitext(os.path.basename(file_path))[0] + ".xlsx"
     output_path = os.path.join(output_directory, file_name)
     
     df = pd.DataFrame(data)
     
-    if "Xáo trộn câu hỏi" in selected_options:
-        df = df.sample(frac=1)  # frac=1 shuffles all rows randomly
-    # Open the output directory
+    if "Shuffle questions" in selected_options:
+        df = df.sample(frac=1)
+    
     df.to_excel(output_path, index=False)
-    if open:
+    
+    if open_file:
         os.startfile(output_path)

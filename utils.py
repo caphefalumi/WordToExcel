@@ -19,15 +19,14 @@ def CFL(text: str) -> str:
 # Helper function to check whether a text is a question
 def is_question(text: str) -> bool:
     """Check if a text is question."""
-    if text.startswith("Câu"):
+    if text.startswith(("Câu", "câu", "1", "2", "3", "4", "5", "6", "7", "8", "9")):
+        print(text)
         return True
 
 # Helper function to check if a paragraph starts with an option (A, B, C, D)
 def is_option(text: str) -> bool:
     """Check if a text is option"""
-    if text.startswith(("A.", "B.", "C.", "D.", "a.", "b.", "c.", "d.","A ", "B ", "C ", "D ", "a ", "b ", "c ", "d ")):
-        print(text)
-        
+    if text.startswith(("A.", "B.", "C.", "D.", "a.", "b.", "c.", "d.","A ", "B ", "C ", "D ", "a ", "b ", "c ", "d ")):        
         return True
 
 # Helper function to split options that are on the same line
@@ -59,9 +58,12 @@ def get_correct_answer_index(options: list, highlights: list) -> int:
     # Gets the index of the correct answer from options based on highlighted text.
     for index, option_text in enumerate(options):
         cleaned_text = re.sub(r'^[a-dA-D]\. ', '', option_text).strip()
-        if cleaned_text == highlights[0]:
-            highlights.pop(0)
-            return index+1
+        try:
+            if cleaned_text == highlights[0]:
+                highlights.pop(0)
+                return index+1
+        except Exception:
+            pass
     return None
 
 def create_quiz(data: list, current_question: str, current_options: list, highlights: list, platform: str) -> None:
